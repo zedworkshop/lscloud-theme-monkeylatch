@@ -1,0 +1,43 @@
+html {
+	height: 100%;
+}
+
+body {
+	background-color: $base-background;
+	color: $dark;
+}
+
+.container-narrow {
+	max-width: 60em;
+}
+
+.container-wide {
+	max-width: 84em;
+}
+
+.main {
+	padding-top: 0;
+	z-index: 2;
+	max-width: 900px;
+
+	@media #{$breakpoint-sm} {
+		border-top: $space-4 solid $base-background;
+		margin-left: (4/12 * 100%);
+		height: 100%;
+		padding-top: 2rem;
+	}
+}
+
+.content {
+	padding-left: $space-2;
+	padding-right: $space-2;
+
+	@media #{$breakpoint-sm} {
+		padding-left: $space-4;
+		padding-right: $space-4;
+	}
+
+	@media #{$breakpoint-lg} {
+		padding-left: $space-4 * 2;
+	}
+}

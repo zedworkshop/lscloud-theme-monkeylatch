@@ -1,0 +1,29 @@
+---
+action: ''
+description: ''
+template: home
+protocol: ''
+published: '1'
+redirect: ''
+name: Home
+url: /
+---
+
+{{ partial('brand-hero') }}
+
+<div class="container">
+{{ partial('brand-blocks-2') }}
+
+{{ partial('brand-blocks-3') }}
+
+{{ partial('shop-collection', {'collectionCode': 'featured'}) }}
+</div>
+
+<div class="container-fluid bg-muted buffer-top buffer-bottom">
+    <div class="row">
+        <div class="center-block text-center">
+            {{ content_block('home-bottom-block') }}
+            <p><a class="btn btn-bright" href="#">Learn more</a></p>
+        </div>
+    </div>
+</div>

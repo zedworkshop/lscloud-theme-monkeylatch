@@ -1,0 +1,10 @@
+$beer: #f79400;
+$wine: #993333;
+$dark: #323232;
+
+$brand-primary: $beer;
+$brand-primary-light: desaturate(lighten($brand-primary, 25), 15);
+
+$brand-secondary: $wine;
+
+$base-background: #f5f5f5;

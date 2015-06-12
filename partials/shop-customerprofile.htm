@@ -1,0 +1,190 @@
+{{ flash() }}
+
+{{ open_form({'data-ajax-handler': 'shop:onUpdateCustomerProfile', 'class': 'form-horizontal custom', 'data-ajax-update': "#profile-addresses=shop-customerprofile", 'data-validation-message' : ''}) }}
+
+<input type="hidden" name="billing[id]" value="{{ billing.id }}" />
+
+<div class="col-sm-12">
+
+    <section id="billing-info">
+        <h4 class="breaker">Billing Information</h4>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Your Name</label>
+            <div class="col-sm-9 form-inline">
+                <div class="form-group">
+                    <label for="billing[first_name]" class="control-label sr-only">First Name</label>
+                    <input type="text" class="form-control input-sm" id="billing[first_name]" name="billing[first_name]" value="{{ billing.first_name }}" size="20" placeholder="First Name" />
+                    <span class="error small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="billing[last_name]" class="control-label sr-only">Last Name</label>
+                    <input type="text" class="form-control input-sm" id="billing[last_name]" name="billing[last_name]" value="{{ billing.last_name }}" size="20" placeholder="Last Name" />
+                    <span class="error small text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="billing[email]" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+                <input type="email" class="form-control input-sm" id="billing[email]" name="billing[email]" value="{{ customer.email }}" size="40" />
+                <span class="error small text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="billing[phone]" class="col-sm-3 control-label">Phone</label>
+            <div class="col-sm-9">
+                <input type="tel" class="form-control input-sm" id="billing[phone]" name="billing[phone]" value="{{ billing.phone }}" size="16" />
+                <span class="error small text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="billing[street_address]" class="col-sm-3 control-label">Address</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control input-sm" id="billing[street_address]" name="billing[street_address]" value="{{ billing.street_address }}" size="40" placeholder="Street" />
+                <span class="error small text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9 form-inline">
+                <div class="form-group">
+                    <label for="billing[city]" class="control-label sr-only">City</label>
+                    <input type="text" class="form-control input-sm" id="billing[city]" name="billing[city]" value="{{ billing.city }}" size="20" placeholder="City" />
+                    <span class="error small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="billing[postal_code]" class="control-label sr-only">Zip</label>
+                    <input type="text" class="form-control input-sm" id="billing[postal_code]" name="billing[postal_code]" value="{{ billing.postal_code }}" size="6" placeholder="Zip" />
+                    <span class="error small text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="billing_country" class="col-sm-3 control-label">Country</label>
+            <div class="col-sm-7">
+                <select class="form-control input-sm" id="billing_country" name="billing[shop_country_id]" data-state-selector="#billing_state" data-current-state="{{ billing.country.id }}">
+                    {% for country in countries %}
+                    <option {{ option_state(billing.country.id, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+                    {% endfor %}
+                </select>
+                <span class="error small text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="billing_state" class="col-sm-3 control-label">State</label>
+            <div class="col-sm-9">
+                <select class="form-control input-sm" id="billing_state" name="billing[shop_state_id]" data-ajax-refresh>
+                    {{ partial('shop-stateoptions', {'states': billingStates, 'selected': billing.state.id}) }}
+                </select>
+                <span class="error small text-danger"></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" class="js-mirrordata" checked> My shipping information is the same
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <section class="mb1" id="shipping-info">
+
+        <h4 class="breaker">Shipping Information</h4>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Your Name</label>
+            <div class="col-sm-9 form-inline">
+                <div class="form-group">
+                    <label for="shipping[first_name]" class="control-label sr-only">First Name</label>
+                    <input type="text" class="form-control input-sm" id="shipping[first_name]" name="shipping[first_name]" value="{{ shipping.first_name }}" size="20" placeholder="First Name" />
+                    <span class="error small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="shipping[last_name]" class="control-label sr-only">Last Name</label>
+                    <input type="text" class="form-control input-sm" id="shipping[last_name]" name="shipping[last_name]" value="{{ shipping.last_name }}" size="20" placeholder="Last Name" />
+                    <span class="error small text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="shipping[phone]" class="col-sm-3 control-label">Phone</label>
+            <div class="col-sm-9">
+                <input type="tel" class="form-control input-sm" id="shipping[phone]" name="shipping[phone]" value="{{ shipping.phone }}" size="16" />
+                <span class="error small text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="shipping[street_address]" class="col-sm-3 control-label">Address</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control input-sm" id="shipping[street_address]" name="shipping[street_address]" value="{{ shipping.street_address }}" size="40" placeholder="Street" />
+                <span class="error small text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9 form-inline">
+                <div class="form-group">
+                    <label for="shipping[city]" class="control-label sr-only">City</label>
+                    <input type="text" class="form-control input-sm" id="shipping[city]" name="shipping[city]" value="{{ shipping.city }}" size="20" placeholder="City" />
+                    <span class="error small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="shipping[postal_code]" class="control-label sr-only">Zip</label>
+                    <input type="text" class="form-control input-sm" id="shipping[postal_code]" name="shipping[postal_code]" value="{{ shipping.postal_code }}" size="6" placeholder="Zip" />
+                    <span class="error small text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="shipping_country" class="col-sm-3 control-label">Country</label>
+            <div class="col-sm-7">
+                <select class="form-control input-sm" id="shipping_country" name="shipping[shop_country_id]" data-state-selector="#shipping_state" data-current-state="{{ shipping.country.id }}">
+                    {% for country in countries %}
+                    <option {{ option_state(shipping.country.id, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+                    {% endfor %}
+                </select>
+                <span class="error small text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="shipping_state" class="col-sm-3 control-label">State</label>
+            <div class="col-sm-9">
+                <select id="shipping_state" name="shipping[shop_state_id]" class="form-control input-sm" data-ajax-refresh>
+                {{ partial('shop-stateoptions', {'states': shippingStates, 'selected': shipping.stateId}) }}
+                </select>
+                <span class="error small text-danger"></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <input class="btn btn-dark" type="submit" value="Update" />
+            <input type="hidden" name="flash" value="Your profile has been successfully updated." />
+            <input type="hidden" name="redirect" value="{{ root_url('/profile') }}" />
+        </div>
+    </div>
+
+</div>
+
+{{ close_form() }}

@@ -1,0 +1,30 @@
+/*
+
+	Navigation
+
+*/
+
+.main-navigation {
+	text-align: center;
+
+	.button {
+		font-size: $h4;
+		font-style: italic;
+	}
+
+	@media #{$breakpoint-sm} {
+		margin-bottom: $space-4;
+
+		.button {
+			margin-left: $space-1;
+			margin-right: $space-1;
+		}
+	}
+
+	@media #{$breakpoint-lg} {
+
+		.button {
+			font-size: $h3;
+		}
+	}
+}

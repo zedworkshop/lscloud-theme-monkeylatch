@@ -1,0 +1,79 @@
+/*
+
+Typography
+
+*/
+
+.brand-primary {
+	color: $brand-primary;
+
+	&-light {
+		color: $brand-primary-light;
+	}
+}
+
+.brand-secondary {
+	color: $brand-secondary;
+}
+
+.dark {
+	color: #444;
+}
+
+/*
+
+Backgrounds
+
+*/
+
+.bg-brand-primary {
+	background-color: $brand-primary;
+}
+
+.bg-brand-secondary {
+	background-color: $brand-secondary;
+}
+
+.shadowed {
+	box-shadow: rgba(#000, 0.25) -10px 0 20px;
+}
+
+/*
+
+Alignment
+
+*/
+
+.sm-left-align {
+	@media #{$breakpoint-sm} {
+		text-align: left;
+	}
+}
+
+.sm-center {
+	@media #{$breakpoint-sm} {
+		text-align: center;
+	}
+}
+
+.lg-right-align {
+	@media #{$breakpoint-lg} {
+		text-align: right;
+	}
+}
+
+.middle {
+	vertical-align: middle;
+}
+
+/*
+
+Layout
+
+*/
+
+.full-height {
+	@media #{$breakpoint-sm} {
+		min-height: 100%;
+	}
+}

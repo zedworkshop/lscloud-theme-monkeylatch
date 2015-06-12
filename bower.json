@@ -1,0 +1,23 @@
+{
+  "name": "lscloud-theme-monkeylatch",
+  "version": "0.1.0",
+  "authors": [
+  "Adam Campbell <adam@zedworkshop.com>"
+  ],
+  "description": "LemonStand theme for Monkey Latch",
+  "main": "build.html",
+  "license": "MIT",
+  "homepage": "https://monkeylatch.ca",
+  "ignore": [
+  "**/.*",
+  "node_modules",
+  "bower_components",
+  "test",
+  "tests"
+  ],
+  "dependencies": {
+    "basscss": "~6.1.4",
+    "basscss-sass": "~1.0.2",
+    "modernizr": "~2.8.3"
+  }
+}

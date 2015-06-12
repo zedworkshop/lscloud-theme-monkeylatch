@@ -1,0 +1,55 @@
+/*
+
+	Header
+
+*/
+
+.siteheader {
+	background-color: $dark;
+
+	@media #{$breakpoint-sm} {
+		background: $dark url(../img/bg.jpg) no-repeat 25% top;
+		background-size: cover;
+		justify-content: center;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+}
+
+.site-branding {
+
+	.logo {
+		display: inline-block;
+		width: 100px;
+
+		img {
+			display: block;
+		}
+	}
+
+	@media #{$breakpoint-sm} {
+		padding-top: $space-4 * 1.5;
+
+		.flexbox & {
+			padding-top: 0;
+		}
+
+		.logo {
+			margin-bottom: $space-4;
+			width: 50%;
+			max-width: 180px;
+		}
+	}
+}
+
+
+.tagline {
+	background: $base-background;
+
+	@media #{$breakpoint-sm} {
+		position: absolute;
+		top: -$space-4 * 0.9;
+	}
+}

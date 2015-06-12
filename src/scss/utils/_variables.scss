@@ -1,0 +1,17 @@
+// General
+$sans-serif: "proxima-nova", "Helvetica Neue", Helvetica, sans-serif;
+$serif: "garamond-premier-pro-display", Georgia, "Times New Roman", serif;
+
+// basscss
+$font-family: $sans-serif;
+$h1: 2.5rem;
+$h2: 2rem;
+$h3: 1.6rem;
+$h4: 1.3rem;
+$bold-font-weight: 700;
+
+$border-width: 2px;
+$link-color: $brand-secondary;
+$container-width: 72em;
+
+$breakpoint-xl: '(min-width: 84em)' !default;

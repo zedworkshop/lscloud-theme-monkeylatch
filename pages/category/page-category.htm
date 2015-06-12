@@ -1,0 +1,44 @@
+---
+action: 'shop:category'
+template: shop
+protocol: all
+published: true
+name: Category
+url: '/category/:urlName@/:page?'
+---
+
+<div class="container CATEGORY">
+
+    <div class="row">
+        <div class="col-sm-2 CATEGORY__left">
+            {{ partial('shop-categories') }}            
+        </div>
+
+        <div class="col-xs-12 col-sm-10">
+        {% if not category %}
+            <h2>Category not found</h2>
+            <p>We are sorry, the requested category was not found.</p>
+        {% else %}
+
+            {% if not category.parent %}
+            {{ partial('shop-category-hero') }}
+            {% endif %}
+
+            <div class="row visible-xs-block CATEGORY__nav">
+               <div class="col-xs-12 bg-muted">
+                    <h4 class="text-mid">{{ category.name }}</h4>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidenav-category">
+                        <span class="text">View Categories</span>
+                    </button>
+                </div>
+            </div>
+
+            {{ 
+                partial('shop-product-list', {
+                    'products': products
+                }) 
+            }} 
+        {% endif %}
+        </div>
+    </div>
+</div>
