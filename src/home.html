@@ -5,28 +5,52 @@
 	<meta charset="utf-8">
 	<title>Monkey Latch</title>
 	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="/favicon.ico">
 
 	<link rel="stylesheet" href="css/main.css">
+
+	<script type="text/javascript">
+		WebFontConfig = {
+			google: { families: [ 'Lato:400,700:latin', 'Oswald:700:latin' ] }
+		};
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})();
+	</script>
 </head>
 
 <body>
 
 	<!-- Siteheader -->
-	<header class="[ py3 z2 relative bg-brand-secondary ] siteheader">
+	<header class="[ relative bg-brand-secondary ] siteheader">
 
-		<div class="[ container px2 relative ]">
+		<div class="[ container px2 pyr3 relative ]">
 			<div class="clearfix">
 
-				<div class="[ inline-block middle col-3 ] sitebrand">
+				<div class="[ inline-block middle col-3 sm-col-2 ] sitebrand">
 					<a href="#" class="logo">
 						<img alt="" src="./img/logo.png" />
 					</a>
 				</div>
 
-				<nav class="[ inline-block middle ] sitenav">
+				<a href="#" class="[ button bg-white black right ] sm-hide">Menu</a>
+
+				<nav class="[ inline-block middle uppercase right mt1 ] sitenav">
 					<a href="#" class="[ button button-transparent white ]">Monkey Latch</a>
+					<a href="#" class="[ button button-transparent white ]">Products</a>
+					<a href="#" class="[ button button-transparent white ]">Learn</a>
+					<a href="#" class="[ button button-transparent white ]">Contact</a>
+
+					<div class="inline-block minicart">
+						<a href="#" class="[ button button-transparent white ]">Cart <span class="[ inline-block xsmall sentence regular red ml1 sm-hide ] cartinfo">2 items / $400.00</span></a>
+					</div>
 				</nav>
 
 			</div>
@@ -52,33 +76,143 @@
 			<div class="[ container px2 py3 ]">
 
 				<header class="center">
-					<h3 class="uppercase white mb0 mt0">Super Convenient</h3>
+					<h2 class="uppercase white mb0 mt0">Super Convenient</h2>
 					<h4 class="white mt0">The best quick-release system for convenient use of multiple accessories</h4>
 				</header>
 
 			</div>
 		</div>
 
-		<div class="bg-gray">
-			<div class="[ container px2 py3 ]">
+		<div class="[ bg-gray bgimg-raster-grey bg-cover bg-center ]">
+			<div class="[ container px2 py3 relative overflow-hidden ]">
 
-				<header class="center">
-					<h3 class="uppercase white mb0 mt0">Super Versatile</h3>
-					<h4 class="white mt0">The best quick-release system for convenient use of multiple accessories</h4>
+				<header class="center relative z4">
+					<h2 class="uppercase white mb0 mt0">Super Quick</h2>
+					<h4 class="white mt0">Easily slide camera into position, lock and get shooting in seconds!</h4>
 				</header>
+
+				<div class="quick-scene">
+
+					<div class="[ absolute z1 ] quick-top">
+						<img alt="" src="../img/img-quick-top.png" />
+					</div>
+					<div class="[ absolute z1 ] quick-bottom">
+						<img alt="" src="../img/img-quick-bottom.png" />
+					</div>
+					<div class="[ absolute z2 ] quick-arrow">
+						<img alt="" src="../img/img-quick-arrow.png" />
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="bg-silver">
+			<div class="[ container py3 ]">
+
+				<header class="center mb3">
+					<h2 class="uppercase white mb0 mt0">Super Versatile</h2>
+					<h4 class="white mt0">The Base Plate stays mounted to your camera and connects to all components in the Monkey Latch&trade; system</h4>
+				</header>
+
+				<div class="clearfix">
+					<div class="sm-col sm-col-6 px2">
+
+						<figure>
+							<img src="http://placehold.it/500x270">
+						</figure>
+
+						<h5 class="xsmall uppercase heading">Base Plate</h5>
+						<p class="xsmall">Attaches to your camera via the tripod screw mount. Does not interfere with battery or SD card cover on most cameras so can remain in position.</p>
+
+					</div>
+					<div class="sm-col sm-col-6 px2">
+
+						<div class="clearfix mb1">
+							<figure class="col col-5 right-align">
+								<img src="http://placehold.it/160x100">
+							</figure>
+							<div class="col col-7 px2">
+								<h5 class="xsmall uppercase heading">Tripod Mount</h5>
+								<p class="xsmall">Quickly secure camera to tripods, gorilla grips, selfie sticks and monopods. Arca-Swiss compatible.</p>
+							</div>
+						</div>
+
+						<div class="clearfix mb1">
+							<figure class="col col-5 right-align">
+								<img src="http://placehold.it/160x100">
+							</figure>
+							<div class="col col-7 px2">
+								<h5 class="xsmall uppercase heading">Tripod Mount</h5>
+								<p class="xsmall">Quickly secure camera to tripods, gorilla grips, selfie sticks and monopods. Arca-Swiss compatible.</p>
+							</div>
+						</div>
+
+						<div class="clearfix">
+							<figure class="col col-5 right-align">
+								<img src="http://placehold.it/250x130">
+							</figure>
+							<div class="col col-7 px2">
+								<h5 class="xsmall uppercase heading">Tripod Mount</h5>
+								<p class="xsmall">Quickly secure camera to tripods, gorilla grips, selfie sticks and monopods. Arca-Swiss compatible.</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
 
 			</div>
 		</div>
 
-		<div class="">
-			<div class="[ container px2 py3 ]">
+		<div class="[ container px2 py3 cushion-bottom ]">
 
-				<header class="center">
-					<h3 class="uppercase mb0 mt0">Products</h3>
-					<h4 class="mt0">The best quick-release system for convenient use of multiple accessories</h4>
-				</header>
+			<header class="center mb3">
+				<h2 class="uppercase mb0 mt0">Products</h2>
+				<h4 class="mt0">A family of quick-release products to suit all your needs</h4>
+			</header>
 
+			<div class="clearfix mxn2">
+				<div class="sm-col sm-col-6 px2 mb2">
+					<h6 class="uppercase xsmall">Studio Kit $84.99</h6>
+					<figure>
+						<img src="http://placehold.it/600x400">
+					</figure>
+				</div>
+				<div class="sm-col sm-col-6 px2 mb2">
+					<h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+					<figure>
+						<img src="http://placehold.it/600x400">
+					</figure>
+				</div>
 			</div>
+
+			<div class="clearfix mxn2">
+				<div class="sm-col sm-col-4 px2 mb2">
+					<h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+					<figure>
+						<img src="http://placehold.it/400x200">
+					</figure>
+				</div>
+				<div class="sm-col sm-col-3 px2 mb2">
+					<h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+					<figure>
+						<img src="http://placehold.it/300x200">
+					</figure>
+				</div>
+				<div class="sm-col sm-col-3 px2 mb2">
+					<h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+					<figure>
+						<img src="http://placehold.it/300x200">
+					</figure>
+				</div>
+				<div class="sm-col sm-col-2 px2 mb2">
+					<h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+					<figure>
+						<img src="http://placehold.it/180x200">
+					</figure>
+				</div>
+			</div>
+
 		</div>
 
 	</main>
@@ -86,11 +220,38 @@
 
 	<!-- Sitefooter -->
 	<footer class="[ bg-brand-grey ] sitefooter">
-		<div class="container px2 py4 silver">
+		<div class="container px2 py4 black">
 
+			<div class="clearfix mb4">
+				<div class="col col-6 sm-col-2">
+					<h5 class="uppercase">Company</h5>
+					<ul class="list-reset">
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">News</a></li>
+						<li><a href="#">Blog</a></li>
+					</ul>
+				</div>
+				<div class="col col-6 sm-col-2">
+					<h5 class="uppercase">Shop</h5>
+					<ul class="list-reset">
+						<li><a href="#">Products</a></li>
+					</ul>
+				</div>
+				<div class="col col-6 sm-col-2">
+					<h5 class="uppercase">Support</h5>
+					<ul class="list-reset">
+						<li><a href="#">Learn</a></li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Order Information</a></li>
+						<li><a href="#">Shipping Information</a></li>
+					</ul>
+				</div>
+				<div class="col col-6 sm-col-6 sm-right-align">
+					social
+				</div>
+			</div>
 
-
-			<p class="center xsmall mb0">Copyright &copy; 2015 Monkey Latch</p>
+			<p class="center xsmall mb0 mt4">Copyright &copy; 2015 Monkey Latch</p>
 
 		</div>
 	</footer>

@@ -1,0 +1,50 @@
+/**
+ *  Home Page
+*/
+
+// Super Quick
+
+.quick-scene {
+	box-sizing: border-box;
+	padding-bottom: 38%;
+}
+
+.quick-top {
+	left: 5%;
+	top: -30px;
+	width: 250px;
+}
+
+.quick-bottom {
+	right: 0;
+	bottom: -40px;
+	width: 300px;
+}
+
+.quick-arrow {
+	left: 5%;
+	top: 40%;
+	width: 100px;
+}
+
+@media #{$breakpoint-sm} {
+
+	.quick-top {
+		top: -10%;
+		left: 21%;
+		width: 40%;
+	}
+
+	.quick-bottom {
+		bottom: -10%;
+		left: 34%;
+		width: 50%;
+	}
+
+	.quick-arrow {
+		left: 15%;
+		top: 25%;
+		width: 25%;
+	}
+
+}

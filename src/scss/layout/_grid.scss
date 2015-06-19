@@ -1,3 +1,10 @@
+@media #{$breakpoint-sm} {
+  .sm-col-fifth {
+    width: 20%;
+  }
+}
+
+
 @media #{$breakpoint-xl} {
 
   .xl-col {

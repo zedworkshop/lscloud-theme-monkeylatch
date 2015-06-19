@@ -1,14 +1,29 @@
+h1, h2, h3, h4, h5, h6 {
+	.center &,
+	&.center {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 30em;
+	}
+}
+
 h1 {
 	font-weight: 300;
 	line-height: 1.1;
 }
 
 p, dl, ol, ul {
-	font-size: $h5 * 1.1;
+	font-size: $h6;
 }
 
-.serif {
-	font-family: $serif;
+figure {
+	margin: 0;
+	padding: 0;
+
+	img {
+		display: inline-block;
+		max-width: 100%;
+	}
 }
 
 // Sizes
@@ -21,8 +36,27 @@ p, dl, ol, ul {
 	font-size: 13px;
 }
 
+@media #{$breakpoint-sm} {
+	.small {
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+}
+
 // Styles
+
+.serif {
+	font-family: $serif;
+}
 
 .uppercase {
 	text-transform: uppercase;
+}
+
+.sentence {
+	text-transform: none;
+}
+
+.heading {
+	font-family: $heading;
 }

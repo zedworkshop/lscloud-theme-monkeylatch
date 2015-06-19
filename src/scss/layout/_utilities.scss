@@ -34,6 +34,18 @@ Backgrounds
 	box-shadow: rgba(#000, 0.25) -10px 0 20px;
 }
 
+.bgimg-raster-white {
+	background-image: url(../img/bg-raster-white.png);
+}
+
+.bgimg-raster-grey {
+	background-image: url(../img/bg-raster-grey.png);
+}
+
+.bgimg-raster-darkgrey {
+	background-image: url(../img/bg-raster-darkgrey.png);
+}
+
 /*
 
 Alignment
@@ -49,6 +61,12 @@ Alignment
 .sm-center {
 	@media #{$breakpoint-sm} {
 		text-align: center;
+	}
+}
+
+.sm-right-align {
+	@media #{$breakpoint-sm} {
+		text-align: right;
 	}
 }
 
@@ -73,3 +91,32 @@ Layout
 		min-height: 100%;
 	}
 }
+
+
+/*
+
+Padding
+
+*/
+
+.pyr3 {
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+.cushion-top {
+	padding-top: 12.5%;
+}
+
+.cushion-bottom {
+	padding-bottom: 12.5%;
+
+	&-lg {
+		padding-bottom: 20%
+	}
+
+	&-xl {
+		padding-bottom: 32%;
+	}
+}
+
