@@ -1,9 +1,1 @@
-<a class="button right" href="{{ site_url('/cart') }}">
-	<strong>
-{% if cart.getItemNum() == 1 %}
-    1 item 
-{% else %}
-   	{{ cart.getItemNum() }} items
-{% endif %}
-	</strong> <span>{{ cart.getSubtotal()|currency }}</span>
-</a>
+<a href="{{ site_url('/cart') }}" class="[ button button-transparent white ]">Cart <span class="[ inline-block xsmall sentence regular red ml1 sm-hide ] cartinfo">{% if cart.getItemNum() == 1 %}1 item{% else %}{{ cart.getItemNum() }} items{% endif %} / {{ cart.getSubtotal()|currency }}</span></a>

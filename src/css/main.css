@@ -2231,6 +2231,9 @@ figure {
   font-size: 13px; }
 
 @media (min-width: 40em) {
+  .xsmall {
+    font-size: 0.7rem;
+    line-height: 1.4; }
   .small {
     font-size: 0.9rem;
     line-height: 1.5; } }
@@ -2490,3 +2493,10 @@ Padding
     left: 15%;
     top: 25%;
     width: 25%; } }
+
+.related-product__desc p {
+  font-size: 13px; }
+@media (min-width: 40em) {
+  .related-product__desc p {
+    font-size: 0.9rem;
+    line-height: 1.5; } }

@@ -1,7 +1,7 @@
 ---
 action: ''
 description: ''
-template: home
+template: master
 protocol: ''
 published: '1'
 redirect: ''
@@ -9,21 +9,127 @@ name: Home
 url: /
 ---
 
-{{ partial('brand-hero') }}
-
-<div class="container">
-{{ partial('brand-blocks-2') }}
-
-{{ partial('brand-blocks-3') }}
-
-{{ partial('shop-collection', {'collectionCode': 'featured'}) }}
+<div class="[ container px2 py3 ]">
+    <div class="[ clearfix ]">
+        Click
+    </div>
 </div>
-
-<div class="container-fluid bg-muted buffer-top buffer-bottom">
-    <div class="row">
-        <div class="center-block text-center">
-            {{ content_block('home-bottom-block') }}
-            <p><a class="btn btn-bright" href="#">Learn more</a></p>
+<div class="bg-brand-primary">
+    <div class="[ container px2 py3 ]">
+        <header class="center">
+            <h2 class="uppercase white mb0 mt0">Super Convenient</h2>
+            <h4 class="white mt0">The best quick-release system for convenient use of multiple accessories</h4>
+        </header>
+    </div>
+</div>
+<div class="[ bg-gray bgimg-raster-grey bg-cover bg-center ]">
+    <div class="[ container px2 py3 relative overflow-hidden ]">
+        <header class="center relative z4">
+            <h2 class="uppercase white mb0 mt0">Super Quick</h2>
+            <h4 class="white mt0">Easily slide camera into position, lock and get shooting in seconds!</h4>
+        </header>
+        <div class="quick-scene">
+            <div class="[ absolute z1 ] quick-top">
+                <img alt="" src="{{ 'img/img-quick-top.png'|theme_resource }}" />
+            </div>
+            <div class="[ absolute z1 ] quick-bottom">
+                <img alt="" src="{{ 'img/img-quick-bottom.png'|theme_resource }}" />
+            </div>
+            <div class="[ absolute z2 ] quick-arrow">
+                <img alt="" src="{{ 'img/img-quick-arrow.png'|theme_resource }}" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-silver">
+    <div class="[ container py3 ]">
+        <header class="center mb3">
+            <h2 class="uppercase white mb0 mt0">Super Versatile</h2>
+            <h4 class="white mt0">The Base Plate stays mounted to your camera and connects to all components in the Monkey Latch&trade; system</h4>
+        </header>
+        <div class="clearfix">
+            <div class="sm-col sm-col-6 px2">
+                <figure>
+                    <img src="http://placehold.it/500x270">
+                </figure>
+                <h5 class="xsmall uppercase heading">Base Plate</h5>
+                <p class="xsmall">Attaches to your camera via the tripod screw mount. Does not interfere with battery or SD card cover on most cameras so can remain in position.</p>
+            </div>
+            <div class="sm-col sm-col-6 px2">
+                <div class="clearfix mb1">
+                    <figure class="col col-5 right-align">
+                        <img src="http://placehold.it/160x100">
+                    </figure>
+                    <div class="col col-7 px2">
+                        <h5 class="xsmall uppercase heading">Tripod Mount</h5>
+                        <p class="xsmall">Quickly secure camera to tripods, gorilla grips, selfie sticks and monopods. Arca-Swiss compatible.</p>
+                    </div>
+                </div>
+                <div class="clearfix mb1">
+                    <figure class="col col-5 right-align">
+                        <img src="http://placehold.it/160x100">
+                    </figure>
+                    <div class="col col-7 px2">
+                        <h5 class="xsmall uppercase heading">Tripod Mount</h5>
+                        <p class="xsmall">Quickly secure camera to tripods, gorilla grips, selfie sticks and monopods. Arca-Swiss compatible.</p>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <figure class="col col-5 right-align">
+                        <img src="http://placehold.it/250x130">
+                    </figure>
+                    <div class="col col-7 px2">
+                        <h5 class="xsmall uppercase heading">Tripod Mount</h5>
+                        <p class="xsmall">Quickly secure camera to tripods, gorilla grips, selfie sticks and monopods. Arca-Swiss compatible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="[ container px2 py3 cushion-bottom ]">
+    <header class="center mb3">
+        <h2 class="uppercase mb0 mt0">Products</h2>
+        <h4 class="mt0">A family of quick-release products to suit all your needs</h4>
+    </header>
+    <div class="clearfix mxn2">
+        <div class="sm-col sm-col-6 px2 mb2">
+            <h6 class="uppercase xsmall">Studio Kit $84.99</h6>
+            <figure>
+                <img src="http://placehold.it/600x400">
+            </figure>
+        </div>
+        <div class="sm-col sm-col-6 px2 mb2">
+            <h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+            <figure>
+                <img src="http://placehold.it/600x400">
+            </figure>
+        </div>
+    </div>
+    <div class="clearfix mxn2">
+        <div class="sm-col sm-col-4 px2 mb2">
+            <h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+            <figure>
+                <img src="http://placehold.it/400x200">
+            </figure>
+        </div>
+        <div class="sm-col sm-col-3 px2 mb2">
+            <h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+            <figure>
+                <img src="http://placehold.it/300x200">
+            </figure>
+        </div>
+        <div class="sm-col sm-col-3 px2 mb2">
+            <h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+            <figure>
+                <img src="http://placehold.it/300x200">
+            </figure>
+        </div>
+        <div class="sm-col sm-col-2 px2 mb2">
+            <h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+            <figure>
+                <img src="http://placehold.it/180x200">
+            </figure>
         </div>
     </div>
 </div>

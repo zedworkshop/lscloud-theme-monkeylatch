@@ -37,6 +37,12 @@ figure {
 }
 
 @media #{$breakpoint-sm} {
+
+	.xsmall {
+		font-size: 0.7rem;
+		line-height: 1.4;
+	}
+
 	.small {
 		font-size: 0.9rem;
 		line-height: 1.5;

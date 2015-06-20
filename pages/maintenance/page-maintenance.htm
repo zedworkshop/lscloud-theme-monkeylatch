@@ -1,0 +1,60 @@
+---
+title: "Monkey Latch"
+description: 'Monkey Latch splash page, displayed when in maintenance mode.'
+template:
+protocol: all
+published: true
+name: 'Maintenance'
+url: /welcome
+---
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Monkey Latch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <script type="text/javascript">
+        WebFontConfig = {
+            google: { families: [ 'Lato:400,700:latin' ] }
+        };
+        (function() {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+    </script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        body {
+            background: url({{ 'img/bg-splash-sm.jpg'|theme_resource }}) no-repeat center center;
+            background-size: cover;
+        }
+        @media (min-width: 600px) {
+            body {
+                background-image: url({{ 'img/bg-splash.jpg'|theme_resource }});
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+</body>
+</html>

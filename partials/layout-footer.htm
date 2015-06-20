@@ -1,85 +1,61 @@
-</main>
+<!-- Sitefooter -->
+<footer class="[ bg-brand-grey ] sitefooter">
+    <div class="container px2 py4 black">
 
-<footer class="container-fluid bg-dark sitefooter">
+        <div class="clearfix mb4">
+            <div class="col col-6 sm-col-2">
+                <h5 class="uppercase">Company</h5>
+                <ul class="list-reset">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="col col-6 sm-col-2">
+                <h5 class="uppercase">Shop</h5>
+                <ul class="list-reset">
+                    <li><a href="#">Products</a></li>
+                    <li><a href="{{ site_url('orders') }}">Order History</a></li>
+                    <li><a href="{{ site_url('profile') }}">Account</a></li>
+                </ul>
+            </div>
+            <div class="col col-6 sm-col-2">
+                <h5 class="uppercase">Support</h5>
+                <ul class="list-reset">
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="{{ site_url('contact') }}">Contact</a>
+                </ul>
+            </div>
+            <div class="col col-6 sm-col-6 sm-right-align">
+                <ul class="list-reset">
+                    {% if theme.socialFacebookUrl %}
+                    <li><a href="{{ theme.socialFacebookUrl }}"><i class="fa fa-2x fa-facebook"></i><span class="sr-only">Facebook</span></a></li>
+                    {% endif %}
+                    {% if theme.socialTwitterUrl %}
+                    <li><a href="{{ theme.socialTwitterUrl }}"><i class="fa fa-2x fa-twitter"></i><span class="sr-only">Twitter</span></a></li>
+                    {% endif %}
+                    {% if theme.socialInstagramUrl %}
+                    <li><a href="{{ theme.socialInstagramUrl }}"><i class="fa fa-2x fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
+                    {% endif %}
+                    {% if theme.socialPinterestUrl %}
+                    <li><a href="{{ theme.socialPinterestUrl }}"><i class="fa fa-2x fa-pinterest"></i><span class="sr-only">Pinterest</span></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
 
-    <div class="row buffer-bottom">
-        <div class="col-xs-12 col-sm-8 mb1--xs">
-            <h5 class="text-caps">{% if theme.logoText %}{{ theme.logoText }} {% endif %}Newsletter</h5>
-            <input type="text" class="form-control input-sm" size="20" placeholder="Enter your email" />
-        </div>
-        <div class="col-xs-12 col-sm-4 text-right--sm">
-            <ul class="list-inline">
-                {% if theme.socialFacebookUrl %} 
-                <li><a href="{{ theme.socialFacebookUrl }}"><i class="fa fa-2x fa-facebook"></i><span class="sr-only">Facebook</span></a></li>
-                {% endif %}
-                {% if theme.socialTwitterUrl %} 
-                <li><a href="{{ theme.socialTwitterUrl }}"><i class="fa fa-2x fa-twitter"></i><span class="sr-only">Twitter</span></a></li>
-                {% endif %}
-                {% if theme.socialInstagramUrl %} 
-                <li><a href="{{ theme.socialInstagramUrl }}"><i class="fa fa-2x fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
-                {% endif %}
-                {% if theme.socialPinterestUrl %} 
-                <li><a href="{{ theme.socialPinterestUrl }}"><i class="fa fa-2x fa-pinterest"></i><span class="sr-only">Pinterest</span></a></li>
-                {% endif %}                    
-            </ul>
-        </div>
+        <p class="center xsmall mb0 mt4">Copyright &copy; 2015 Monkey Latch</p>
+
     </div>
-
-    <div class="row buffer-bottom">
-
-        <div class="col-sm-2">
-            <h5 class="text-caps">Shop</h5>
-            {% tree categories %}
-            <ul class="list-simple">
-                {% for category in tree.items %}
-                <li><a href="/category/{{ category.url_name }}">{{ category.name }}</a></li>
-                {% endfor %}
-                <li><a class="text-bright" href="/sale/">Sale</a></li>
-            </ul>
-            {% endtree %}
-        </div>
-
-        <div class="col-sm-2">
-            <h5 class="text-caps">Customer Service</h5>
-            <ul class="list-simple">
-                <li><a href="{{ site_url('orders') }}">Order History</a></li>
-                <li><a href="{{ site_url('profile') }}">Account</a></li>
-                <li><a href="#">Returns</a></li>
-                <li><a href="#">Shipping</a></li>
-                <li><a href="{{ site_url('contact') }}">Contact</a>
-            </ul>
-        </div>
-
-        <div class="col-sm-2 mb1--xs">
-            <h5 class="text-caps">Coastal</h5>
-            <ul class="list-simple">
-                <li><a href="#">Blog</a></li>
-                <li><a href="{{ site_url('about') }}">About</a></li>
-            </ul>
-        </div>
-
-        <div class="col-sm-4 col-sm-offset-2 text-right--sm">
-            {% if theme.footerTagline %}
-            <h5>{{ theme.footerTagline }}</h5>
-            {% endif %}
-            <p>Powered by <a href="https://lemonstand.com">LemonStand</a></p>
-            <ul class="list-inline">
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
-            </ul>
-        </div>
-    </div>
-
 </footer>
+<!--// Sitefooter -->
 
-<div id="modal-minicart" class="modal modal--right fade">
+<div id="modal-minicart" class="modal modal--right fade hide">
 {{ partial('modal-minicart') }}
 </div>
-
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="/cms/core.js"></script>
 
-<script src="{{ 'scripts/vendor.js'|theme_resource }}"></script>
-<script src="{{ 'scripts/plugins.js'|theme_resource }}"></script>
-<script src="{{ 'scripts/main.js'|theme_resource }}"></script>
+<script src="{{ 'js/main.js'|theme_resource }}"></script>

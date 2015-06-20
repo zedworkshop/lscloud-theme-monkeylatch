@@ -1,0 +1,14 @@
+.related-product {
+	&__desc {
+		p {
+			font-size: 13px;
+		}
+
+		@media #{$breakpoint-sm} {
+			p {
+				font-size: 0.9rem;
+				line-height: 1.5;
+			}
+		}
+	}
+}
