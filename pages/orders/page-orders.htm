@@ -6,20 +6,26 @@ published: true
 name: Orders
 url: /orders
 ---
-<div class="container buffer-bottom">
-    <div class="row">
 
-        {{ partial('account-sidenav') }}        
+<div class="container px2 cushion-bottom">
 
-        <div class="col-xs-12 col-sm-10">
+     <header class="py2">
+        <h1>Orders</h1>
+    </header>
+
+    <div class="clearfix">
+
+        {{ partial('account-sidenav') }}
+
+        <div class="sm-col sm-col-6">
 
             {% if not orders or not orders.count %}
-            <div class="col-sm-6">
-                <p>You haven't placed any orders yet.</p>
-            </div>            
+
+                <h4>You haven't placed any orders yet.</h4>
+
             {% else %}
-            <div class="col-sm-12">
-                <table class="table table-orders full-width">
+            <div class="overflow-hidden">
+                <table class="table-light full-width">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -44,5 +50,6 @@ url: /orders
             {% endif %}
 
         </div>
+
     </div>
 </div>

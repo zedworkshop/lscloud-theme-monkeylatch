@@ -1,0 +1,12 @@
+.flash {
+	font-weight: bold;
+	margin-bottom: 2rem;
+
+	&.success {
+		color: $green;
+	}
+
+	&.error {
+		color: $red;
+	}
+}

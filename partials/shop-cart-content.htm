@@ -1,28 +1,22 @@
 {{ flash() }}
 
 {% if itemCount %}
-    <div class="row">
-        <div class="col-sm-12">
-        {{ partial('shop-cart-items', {'edit_cart': true}) }}
+    {{ partial('shop-cart-items', {'edit_cart': true}) }}
+
+    <div class="clearfix mb3">
+        <div class="right">
+            <a class="button button-small bg-gray" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart">Update cart</a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12 text-right">
-            <a class="btn btn-dark btn-sm" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart">Update cart</a>
-        </div>
-    </div>
-  
-    <div class="row buffer-top mb1">
+
+    <div class="clearfix mb3">
 
         <!-- Promo Codes -->
-        <div class="col-sm-3">
-            <h4 class="breaker">Promo Codes</h4>
+        <div class="sm-col sm-col-4">
+            <h6>Promo Codes</h6>
 
-            <div class="form-group">
-                <input class="form-control input-sm" type="text" id="coupon" name="coupon" value="{{ coupon_code }}" placeholder="Promo code" />
-            </div>
-            <div class="form-group">
-                <a class="btn btn-dark btn-xs" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart">Apply Promo</a>
+            <div class="form-group mb2">
+                <input class="form-control field-small field-light" type="text" id="coupon" name="coupon" value="{{ coupon_code }}" placeholder="Promo code" /> <a class="button button-small" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart">Apply Promo</a>
             </div>
         </div>
         <!-- // Promo Codes -->
@@ -44,7 +38,7 @@
 
                 <div class="form-group mr05">
                     <label class="small full" for="state">State</label>
-                    <select id="state" name="state" class="form-control"> 
+                    <select id="state" name="state" class="form-control">
                         {# partial('shop-stateoptions', {'states': states, 'current_state': shipping_info.state}) #}
                     </select>
                 </div>
@@ -59,38 +53,37 @@
                 <a class="btn btn-dark btn-xs" href="#" data-ajax-handler="shop:onEvalShippingRate" data-ajax-update="#shipping_options=shopestimatedshippingoptions">Calculate</a>
 
                 <div id="shipping_options"></div>
-            </div>                   
+            </div>
         </div>
         -->
         <!-- // Shipping Estimate -->
 
         <!-- Order Summary -->
-        <div class="col-sm-5 col-sm-offset-4 data-list order-summary">
-            <h4 class="breaker">Order Summary</h4>            
+        <div class="[ sm-col sm-col-4 sm-col-offset-4 ] order-summary">
 
-            
+            <h6>Order Summary</h6>
 
             {% if totals.discountTotal > 0 %}
-            <p class="row">
-                <strong class="col-sm-6">Discount applied</strong>
-                <span class="col-sm-6 text-right newprice">{{ totals.discountTotal|currency }}</span>
+            <p class="clearfix">
+                <strong class="col col-6">Discount applied</strong>
+                <span class="col col-6 right-align newprice">{{ totals.discountTotal|currency }}</span>
             </p>
             {% endif %}
 
             {% if totals.totalShippingQuote > 0 %}
-            <p class="row">
-                <strong class="col-sm-6">Shipping</strong>
-                <span class="col-sm-6 text-right newprice">{{ totals.totalShippingQuote|currency }}</span>
+            <p class="clearfix">
+                <strong class="col col-6">Shipping</strong>
+                <span class="col col-6 right-align newprice">{{ totals.totalShippingQuote|currency }}</span>
             </p>
             {% endif %}
-            <p class="row">
-                <strong class="col-sm-6">Subtotal</strong>
-                <span class="col-sm-6 text-right">{{ totals.subtotal|currency }}</span>
+            <p class="clearfix">
+                <strong class="col col-6">Subtotal</strong>
+                <span class="col col-6 align-right">{{ totals.subtotal|currency }}</span>
             </p>
 
-            <p class="row CART__total">
-                <strong class="col-sm-6">Estimated total</strong>
-                <span class="col-sm-6 text-right text-pop">{{ totals.total|currency }}</span>
+            <p class="clearfix">
+                <strong class="col col-6">Estimated total</strong>
+                <span class="col col-6 align-right">{{ totals.total|currency }}</span>
             </p>
 
         </div>
@@ -98,15 +91,13 @@
 
     </div>
 
-    <div class="row buttons-block form-inline text-right">
-        <div class="col-sm-12">
-            <a class="btn btn-link" href="{{ site_url('shop') }}">Continue shopping</a>
-            {% if customer %}
-            <a class="btn btn-pop" href="{{ site_url('/checkout') }}">Checkout</a>
-            {% else %}
-            <a class="btn btn-pop" href="{{ site_url('/checkout-start') }}">Checkout</a>
-            {% endif %}
-        </div>
+    <div class="full-width py3 border-top">
+        <a class="button button-transparent" href="{{ site_url('shop') }}">Continue shopping</a>
+        {% if customer %}
+        <a class="button bg-red right" href="{{ site_url('/checkout') }}">Checkout</a>
+        {% else %}
+        <a class="button bg-red right" href="{{ site_url('/checkout-start') }}">Checkout</a>
+        {% endif %}
     </div>
 
 {% else %}

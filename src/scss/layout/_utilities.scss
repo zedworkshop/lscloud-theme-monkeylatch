@@ -34,6 +34,10 @@ Backgrounds
 	box-shadow: rgba(#000, 0.25) -10px 0 20px;
 }
 
+.bg-norepeat {
+	background-repeat: no-repeat;
+}
+
 .bgimg-raster-white {
 	background-image: url(../img/bg-raster-white.png);
 }
@@ -66,6 +70,12 @@ Alignment
 
 .sm-right-align {
 	@media #{$breakpoint-sm} {
+		text-align: right;
+	}
+}
+
+.md-right-align {
+	@media #{$breakpoint-md} {
 		text-align: right;
 	}
 }
@@ -106,10 +116,18 @@ Padding
 
 .cushion-top {
 	padding-top: 12.5%;
+
+	&-sm {
+		padding-top: 5%;
+	}
 }
 
 .cushion-bottom {
 	padding-bottom: 12.5%;
+
+	&-sm {
+		padding-bottom: 5%;
+	}
 
 	&-lg {
 		padding-bottom: 20%

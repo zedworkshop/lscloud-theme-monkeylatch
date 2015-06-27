@@ -8,15 +8,24 @@ url: /checkout
 ---
 
 {% if not items.count %}
-<div class="container buffer-bottom">
+
+<div class="container px2 cushion-bottom">
     <div class="row">
 	    <div class="col-sm-12">
 	  		<a class="secondary button" href="{{ site_url('shop') }}">Your cart is empty! Continue shopping.</a>
 	  	</div>
 	</div>
 </div>
+
 {% else %}
-<div class="container buffer-bottom" id="checkout-page">
+
+<div class="container px2 cushion-bottom" id="checkout-page">
+
+	<header class="py3">
+		<h1 class="h3">Address Information</h1>
+	</header>
+
   	{{ partial('shop-checkout') }}
 </div>
+
 {% endif %}

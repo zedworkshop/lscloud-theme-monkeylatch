@@ -1,9 +1,34 @@
 @media #{$breakpoint-sm} {
+
+  .sm-col-offset-4 {
+    margin-left: (4/12 * 100%);
+  }
+
   .sm-col-fifth {
     width: 20%;
   }
+
+  .sm-col-7-3 {
+    width: ((7/12)/3 * 100%);
+  }
+
+  .sm-col-8-3 {
+    width: ((8/12)/3 * 100%);
+  }
+
 }
 
+@media #{$breakpoint-md} {
+
+  .md-col-offset-3 {
+    margin-left: (3/12 * 100%);
+  }
+
+  .md-col-offset-6 {
+    margin-left: (6/12 * 100%);
+  }
+
+}
 
 @media #{$breakpoint-xl} {
 

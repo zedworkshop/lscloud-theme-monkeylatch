@@ -9,9 +9,11 @@ url: '/product/:urlName'
 
 {% if product %}
 
-    {{ open_form({'class': 'custom PRD__form', 'onsubmit': 'return false'}) }}
+    {{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
 
-        {{ partial('shop-product') }}
+		<div class="wrapper bg-bottom bg-norepeat bgimg-raster-white">
+        	{{ partial('shop-product') }}
+        </div>
 
     {{ close_form() }}
 

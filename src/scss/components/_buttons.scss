@@ -6,3 +6,11 @@
 		line-height: 1.3;
 	}
 }
+
+@media #{$breakpoint-sm} {
+
+	.button-xsmall {
+		font-size: 0.8rem;
+	}
+
+}

@@ -26,13 +26,14 @@
                 <a href="{{ site_url('login') }}" class="[ button button-transparent white ]">Login or Register</a>
                 {% endif %}
 
-                <div class="inline-block minicart" id="mini-cart">
+                <div class="[ block right-align ] minicart" id="mini-cart">
                     {% if customer %}
-                    <a class="[ button button-transparent white ]" href="{{ site_url('profile') }}">{{ customer.first_name }}'s Account</a>
+                    <a class="[ button button-transparent button-small white ]" href="{{ site_url('profile') }}">{{ customer.first_name }}'s Account</a>
                     {% endif %}
                     {{ partial('shop-minicart') }}
                 </div>
             </nav>
+
 
         </div>
     </div>

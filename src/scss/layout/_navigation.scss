@@ -52,6 +52,10 @@
 			font-size: 0.9rem;
 			border-bottom: 3px solid transparent;
 
+			&-small {
+				font-size: 0.75rem;
+			}
+
 			&:hover {
 				border-bottom-color: $red;
 			}
@@ -61,6 +65,11 @@
 	@media #{$breakpoint-md} {
 		.button {
 			font-size: $h5;
+
+			&-small {
+				font-size: 0.8rem;
+			}
+
 		}
 	}
 

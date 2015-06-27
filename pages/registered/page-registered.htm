@@ -6,18 +6,14 @@ name: Registered
 url: /registered
 ---
 
-<div class="container buffer-bottom">
-	<div class="row">
+<div class="container cushion-top-sm cushion-bottom-lg px2">
 
-  		<div class="col-sm-12">	    	
-	    	{% if customer %}
-	    		<h2 class="mb1">Thank you for registering.</h2>
-	    		<p>A confirmation email has been sent to your email address.</p>
-	        	<p>You have been automatically logged in. <a href="/">Continue shopping</a></p>
-	    	{% else %}
-	        	<p>Please <a href="{{ root_url('/login') }}">sign in</a> using your email and password.</p>
-	    	{% endif %}
-    	</div>
+    	{% if customer %}
+    		<h2 class="mb2">Thank you for registering.</h2>
+    		<p class="h4">A confirmation email has been sent to your email address.</p>
+        	<p>You have been automatically logged in. <a href="/">Continue shopping</a></p>
+    	{% else %}
+        	<p>Please <a href="{{ root_url('/login') }}">sign in</a> using your email and password.</p>
+    	{% endif %}
 
- 	 </div>
 </div>

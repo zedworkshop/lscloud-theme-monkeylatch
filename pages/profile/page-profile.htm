@@ -7,28 +7,31 @@ name: Profile
 url: /profile
 ---
 
-<div class="container buffer-bottom">
-    <div class="row">
+<div class="container px2 cushion-bottom">
+
+    <header class="py2">
+        <h1>Profile</h1>
+    </header>
 
     {% if customer %}
+        <div class="clearfix">
 
-        {{ partial('account-sidenav') }}
+            {{ partial('account-sidenav') }}
 
-        <div class="col-xs-12 col-sm-10" id="profile-addresses">
-            {{ partial('shop-customerprofile') }}
-        </div>
+            <div class="sm-col sm-col-6" id="profile-addresses">
+                {{ partial('shop-customerprofile') }}
+            </div>
 
        <!--  <section class="col-sm-4" id="profile-changepassword">
             {{ partial('shop-changepassword') }}
         </section> -->
 
+        </div>
+
     {% else %}
 
-        <div class="col-sm-12">
-            <p>Please <a href="{{ root_url('login') }}">login</a> to edit your profile.</p>
-        </div>
+        <h3>Please <a href="{{ root_url('login') }}">login</a> to edit your profile.</h3>
 
     {% endif %}
 
-    </div>
 </div>

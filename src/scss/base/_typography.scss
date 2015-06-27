@@ -36,10 +36,14 @@ figure {
 	font-size: 13px;
 }
 
+.max-20 {
+	max-width: 20rem;
+}
+
 @media #{$breakpoint-sm} {
 
 	.xsmall {
-		font-size: 0.75rem;
+		font-size: 0.8rem;
 		line-height: 1.4;
 	}
 
@@ -66,3 +70,17 @@ figure {
 .heading {
 	font-family: $heading;
 }
+
+// Other
+
+.placeholder .sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+

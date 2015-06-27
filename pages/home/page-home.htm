@@ -48,88 +48,111 @@ url: /
             <h4 class="white mt0">The Base Plate stays mounted to your camera and connects to all components in the Monkey Latch&trade; system</h4>
         </header>
         <div class="clearfix">
+
+            {% set baseProducts = 'base-products'|collection %}
+
             <div class="sm-col sm-col-6 px2">
-                <figure>
-                    <img src="http://placehold.it/500x270">
-                </figure>
-                <h5 class="xsmall uppercase heading">Base Plate</h5>
-                <p class="xsmall">Attaches to your camera via the tripod screw mount. Does not interfere with battery or SD card cover on most cameras so can remain in position.</p>
+            {% for product in baseProducts.products %}
+                {% if product.sku == "monkey-latch-base-plate" %}
+                    <figure>
+                        <img alt="{{ product.name }} thumbnail" src="{{ product.images.first.thumbnail(500, 280)|default('http://placehold.it/500x280') }}">
+                    </figure>
+                    <div class="right left-align mr4">
+                        <h5 class="xsmall uppercase heading">{{ product.name }}</h5>
+                        <p class="xsmall max-20">{{ product.short_description }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
             </div>
+
             <div class="sm-col sm-col-6 px2">
+            {% for product in baseProducts.products %}
+                {% if product.sku != "monkey-latch-base-plate" %}
                 <div class="clearfix mb1">
                     <figure class="col col-5 right-align">
-                        <img src="http://placehold.it/160x100">
+                        {% if product.sku == "monkey-latch-backpack-mount" %}
+                        <img alt="{{ product.name }} thumbnail" src="{{ product.images.first.thumbnail(280, 150)|default('http://placehold.it/280x150') }}">
+                        {% else %}
+                        <img alt="{{ product.name }} thumbnail" src="{{ product.images.first.thumbnail(180, 120)|default('http://placehold.it/180x120') }}">
+                        {% endif %}
                     </figure>
                     <div class="col col-7 px2">
-                        <h5 class="xsmall uppercase heading">Tripod Mount</h5>
-                        <p class="xsmall">Quickly secure camera to tripods, gorilla grips, selfie sticks and monopods. Arca-Swiss compatible.</p>
+                        <h5 class="mt2 xsmall uppercase heading">{{ product.name }}</h5>
+                        <p class="xsmall max-20">{{ product.short_description }}</p>
                     </div>
                 </div>
-                <div class="clearfix mb1">
-                    <figure class="col col-5 right-align">
-                        <img src="http://placehold.it/160x100">
-                    </figure>
-                    <div class="col col-7 px2">
-                        <h5 class="xsmall uppercase heading">Tripod Mount</h5>
-                        <p class="xsmall">Quickly secure camera to tripods, gorilla grips, selfie sticks and monopods. Arca-Swiss compatible.</p>
-                    </div>
-                </div>
-                <div class="clearfix">
-                    <figure class="col col-5 right-align">
-                        <img src="http://placehold.it/250x130">
-                    </figure>
-                    <div class="col col-7 px2">
-                        <h5 class="xsmall uppercase heading">Tripod Mount</h5>
-                        <p class="xsmall">Quickly secure camera to tripods, gorilla grips, selfie sticks and monopods. Arca-Swiss compatible.</p>
-                    </div>
-                </div>
+                {% endif %}
+            {% endfor %}
             </div>
+
         </div>
     </div>
 </div>
-<div class="[ container px2 py3 cushion-bottom ]">
+
+<div class="[ container px2 py3 ]">
     <header class="center mb3">
         <h2 class="uppercase mb0 mt0">Products</h2>
         <h4 class="mt0">A family of quick-release products to suit all your needs</h4>
     </header>
-    <div class="clearfix mxn2">
+
+
+    {% set mainProducts = 'main-products'|collection %}
+
+    <div class="clearfix mxn2 mb4">
+
+        {% for product in mainProducts.products %}
+        {% if (product.sku == 'studio-kit' or product.sku == 'sling-kit') %}
+
         <div class="sm-col sm-col-6 px2 mb2">
-            <h6 class="uppercase xsmall">Studio Kit $84.99</h6>
-            <figure>
-                <img src="http://placehold.it/600x400">
-            </figure>
+            <a href="/product/{{ product.url_name }}">
+                <h6 class="uppercase xsmall">{{ product.name }} {{ product.fullPrice|currency }}</h6>
+
+                {% if product.related.count %}
+                <div class="clearfix">
+
+                {% for relatedProduct in product.related %}
+                {% if relatedProduct.sku != 'allen-key' %}
+                <figure class="sm-col sm-col-4">
+                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(320, 240)|default('http://placehold.it/320x240') }}"/>
+                </figure>
+                {% endif %}
+                {% endfor %}
+
+                </div>
+                {% endif %}
+            </a>
         </div>
-        <div class="sm-col sm-col-6 px2 mb2">
-            <h6 class="uppercase xsmall">Sling Kit $84.99</h6>
-            <figure>
-                <img src="http://placehold.it/600x400">
-            </figure>
-        </div>
+
+        {% endif %}
+        {% endfor %}
     </div>
+
     <div class="clearfix mxn2">
+        {% for product in mainProducts.products %}
+        {% if (product.sku != 'studio-kit' and product.sku != 'sling-kit') %}
+
+        {% if (product.sku == 'backpack-mount') %}
         <div class="sm-col sm-col-4 px2 mb2">
-            <h6 class="uppercase xsmall">Sling Kit $84.99</h6>
+        {% else %}
+        <div class="sm-col sm-col-8-3 px2 mb2">
+        {% endif %}
+            <h6 class="uppercase xsmall">{{ product.name }} {{ product.fullPrice|currency }}</h6>
+            {% if product.related.count %}
+            {% for relatedProduct in product.related %}
+            {% if relatedProduct.sku != 'allen-key' %}
             <figure>
-                <img src="http://placehold.it/400x200">
+            {% if (product.sku == 'backpack-mount') %}
+                <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(480, 320)|default('http://placehold.it/480x320') }}"/>
+                {% else %}
+                <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(320, 240)|default('http://placehold.it/320x240') }}"/>
+                {% endif %}
             </figure>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
         </div>
-        <div class="sm-col sm-col-3 px2 mb2">
-            <h6 class="uppercase xsmall">Sling Kit $84.99</h6>
-            <figure>
-                <img src="http://placehold.it/300x200">
-            </figure>
-        </div>
-        <div class="sm-col sm-col-3 px2 mb2">
-            <h6 class="uppercase xsmall">Sling Kit $84.99</h6>
-            <figure>
-                <img src="http://placehold.it/300x200">
-            </figure>
-        </div>
-        <div class="sm-col sm-col-2 px2 mb2">
-            <h6 class="uppercase xsmall">Sling Kit $84.99</h6>
-            <figure>
-                <img src="http://placehold.it/180x200">
-            </figure>
-        </div>
+
+        {% endif %}
+        {% endfor %}
     </div>
 </div>

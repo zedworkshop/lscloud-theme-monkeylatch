@@ -8,7 +8,12 @@ url: /cart
 ---
 
 {{ open_form({'class': 'custom'}) }}
-	<div class="container buffer-bottom CART" id="cart-content">
+	<div class="container cushion-bottom px2" id="cart-content">
+
+		<header class="py2">
+			<h1>Cart</h1>
+		</header>
+
       	{{ partial('shop-cart-content') }}
   	</div>
 {{ close_form() }}
