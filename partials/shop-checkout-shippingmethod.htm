@@ -4,28 +4,30 @@
     {{ partial("shop-checkout-progress") }}
 </header>
 
-<div class="md-col-6 mx-auto" id="shipping-method">
+<div class="md-col-6 mx-auto mb3" id="shipping-method">
 
-    <header class="mb2">
+    <header class="py3">
         <h4>Choose a shipping method.</h4>
     </header>
 
     {% if shippingOptions %}
     <input type="hidden" value="" name="shippingMethod">
-    <table class="table" id="shipping-methods">
+    <table class="table-light" id="shipping-methods">
         {% for index, option in shippingOptions %}
         <tr>
-            <td>
-                <label class="radio-inline" for="{{ 'option'~index }}">
-                    <input name="shippingMethod" {{ option.error_hint ? 'disabled' : null }} value="{{ index }}" {{ radio_state(shippingMethodInfo.id, option.id) }} type="radio" id="{{ 'option'~index }}" style="margin-top:0;" />
-                    <span class="choice-title">
-                        {{ option.shippingMethodName }}
-                        {% if option.shippingServiceName %}: {{ option.shippingServiceName }}{% endif %}
+            <td class="py2">
+                <label class="block" for="{{ 'option'~index }}">
+                    <input name="shippingMethod" {{ option.error_hint ? 'disabled' : null }} value="{{ index }}" {{ radio_state(shippingMethodInfo.id, option.id) }} type="radio" id="{{ 'option'~index }}" class="left" />
+                    <span class="choice-title ml3 block">
+                        <strong class="h5 mb0">{{ option.shippingMethodName }}</strong>
+                        {% if option.shippingServiceName %}
+                        <span class="block">{{ option.shippingServiceName }}</span>
+                        {% endif %}
                     </span>
                 </label>
 
                 {% if option.error_hint %}
-                <span class="choice-description error-hint">{{ option.error_hint }}</span>
+                <span class="choice-description red block">{{ option.error_hint }}</span>
                 {% endif %}
             </td>
             <td class="narrow text-right">
@@ -41,10 +43,8 @@
 </div>
 
 {% if shippingOptions %}
-<div class="row">
-    <div class="col-sm-12 text-right">
-        <a class="btn btn-primary" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #breadcrumbs-area=shop-checkout-progress, #mini-cart=shop-minicart">Place order &amp; pay</a>
-    </div>
+<div class="right-align">
+    <a class="button" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #breadcrumbs-area=shop-checkout-progress, #mini-cart=shop-minicart">Place order &amp; pay</a>
 </div>
 {% endif %}
 <input type="hidden" name="step" value="shipping_method,review" />

@@ -1,54 +1,45 @@
 {% if cart %}
-    <div class="row buffer-bottom">
-        <div class="col-sm-12" id="cart-content">
-            {{ partial('shop-cart-items') }}
-        </div>
+
+    <header class="py3 mb2 border-bottom" id="checkout-progress">
+        {{ partial("shop-checkout-progress") }}
+    </header>
+
+    {% if order.payment_processed %}
+    <div class="col-sm-6">
+        <p class="flash info"><strong>Thank you!</strong> The payment is already processed for this order.</p>
     </div>
-    
-    <div class="col-md-4 pull-right">
-        {{ partial('shop-checkout-totals') }}
-    </div>
-    <div class="col-md-8">
-        {% if order.payment_processed %}
-        <div class="col-sm-6">
-            <p class="flash info"><strong>Thank you!</strong> The payment is already processed for this order.</p>
+    {% else %}
+
+    <div class="md-col-6 mx-auto py3 mb3" id="payment-method">
+
+        <header class="py3">
+            <h4>Choose a payment method.</h4>
+        </header>
+
+        <!-- The payment method radio button clicks are handled in the main.js -->
+        {{ open_form({'class': 'custom mb1', 'id': 'payment_method'}) }}
+        {% for method in paymentMethods %}
+            <label class="radio-inline" for="payment-method{{ method.id }}">
+                <input class="custom-radio" name="paymentMethodId" value="{{ method.id }}" type="radio" id="payment-method{{ method.id }}" />
+                <span class="choice-title">
+                    {{ method.name }}
+                </span>
+            </label>
+        {% endfor %}
+        {{ close_form() }}
+
+        <div id="payment_form">
+        {{ partial('shop-paymentform') }}
         </div>
-        {% else %}
 
-        <div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Choose a payment method.</h3>
-                </div>                
-
-                <div class="panel-body row">
-                    <div class="col-sm-3">
-
-                        <!-- The payment method radio button clicks are handled in the main.js -->
-                        {{ open_form({'class': 'custom mb1', 'id': 'payment_method'}) }} 
-                        {% for method in paymentMethods %}
-
-                            <label class="radio-inline" for="payment-method{{ method.id }}">
-                                <input class="custom-radio" name="paymentMethodId" value="{{ method.id }}" type="radio" id="payment-method{{ method.id }}" />
-                                <span class="choice-title">
-                                    {{ method.name }}
-                                </span>
-                            </label>
-                        {% endfor %}
-                        </form>
-
-                    </div>
-
-                    <div class="col-sm-9" id="payment_form">{{ partial('shop-paymentform') }}</div>
-
-                </div>
-            </div>
-
-        </div>
-    
-        {% endif %}
     </div>
+
+    {% endif %}
+
+<!--     <div id="cart-content">
+        {{ partial('shop-cart-items') }}
+    </div> -->
+
 
  {% else %}
     <div class="row buffer-bottom">

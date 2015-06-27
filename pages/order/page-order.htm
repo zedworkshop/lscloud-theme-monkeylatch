@@ -6,49 +6,57 @@ published: true
 name: Order
 url: '/order/:orderId'
 ---
-<div class="container buffer-bottom">
-    <div class="row">
 
-        {{ partial('account-sidenav') }}        
+<div class="container px2 cushion-bottom">
 
-        <div class="col-xs-12 col-sm-10">
+     <header class="py2">
+        <h1>Order #{{ order.number }}</h1>
+    </header>
+
+    <div class="clearfix">
+
+        {{ partial('account-sidenav') }}
+
+        <div class="sm-col sm-col-9">
+
         {% if order %}
-            <div class="row buffer-bottom">
-                <div class="col-sm-4">
-                    <h4 class="breaker">Order Details</h4>
-                    <ul class="list-simple small">
-                        <li><strong>Order number:</strong> #{{ order.number }}</li>
-                        {% if order.invoices[0].payments().last().guessPaymentMethod() %}
-                        <li><strong>Payment method:</strong> {{ order.invoices[0].payments().last().guessPaymentMethod().name }}</li>
-                        {% endif %}
-                        <li><strong>Order Date:</strong> {{ order.created_at.format('M jS, Y') }}</li>
-                    </ul>
-                </div>
+            <div class="px3 py2 mb3 border">
+                <div class="clearfix mxn2">
+                    <div class="sm-col sm-col-4 px2">
+                        <h6>Order Details</h6>
+                        <ul class="list-reset small">
+                            <li><strong>Order number:</strong> #{{ order.number }}</li>
+                            {% if order.invoices[0].payments().last().guessPaymentMethod() %}
+                            <li><strong>Payment method:</strong> {{ order.invoices[0].payments().last().guessPaymentMethod().name }}</li>
+                            {% endif %}
+                            <li><strong>Order Date:</strong> {{ order.created_at.format('M jS, Y') }}</li>
+                        </ul>
+                    </div>
 
-                <div class="col-sm-4">
-                    <h4 class="breaker">Billing Address</h4>
-                    <address class="small">
-                        {{ order.billingAddress.first_name }} {{ order.billingAddress.last_name }}<br />
-                        {{ order.billingAddress.street_address }}<br />
-                        {{ order.billingAddress.city }}, {{ order.billingAddress.state.name }} {{ order.billingAddress.postal_code }}<br />
-                        Phone: {{ order.billingAddress.phone }}
-                    </address>
-                </div>
+                    <div class="sm-col sm-col-4 px2">
+                        <h6>Billing Address</h6>
+                        <p class="small regular">
+                            {{ order.billingAddress.first_name }} {{ order.billingAddress.last_name }}<br />
+                            {{ order.billingAddress.street_address }}<br />
+                            {{ order.billingAddress.city }}, {{ order.billingAddress.state.name }} {{ order.billingAddress.postal_code }}<br />
+                            Phone: {{ order.billingAddress.phone }}
+                        </p>
+                    </div>
 
-                <div class="col-sm-4">
-                    <h4 class="breaker">Shipping Address</h4>
+                    <div class="sm-col sm-col-4 px2">
+                        <h6>Shipping Address</h6>
 
-                    {% for invoice in order.invoices %}
-                    {% for shipment in invoice.shipments %}
-                    <address class="small">
-                        {{ shipment.shippingAddress.first_name }} {{ shipment.shippingAddress.last_name }}<br />
-                        {{ shipment.shippingAddress.street_address }}<br />
-                        {{ shipment.shippingAddress.city }}, {{ shipment.shippingAddress.state.name }} {{ shipment.shippingAddress.postal_code }}<br />
-                        Phone: {{ shipment.shippingAddress.phone }}
-                    </address>
-                    {% endfor %}
-                    {% endfor %}
-
+                        {% for invoice in order.invoices %}
+                        {% for shipment in invoice.shipments %}
+                        <p class="small regular">
+                            {{ shipment.shippingAddress.first_name }} {{ shipment.shippingAddress.last_name }}<br />
+                            {{ shipment.shippingAddress.street_address }}<br />
+                            {{ shipment.shippingAddress.city }}, {{ shipment.shippingAddress.state.name }} {{ shipment.shippingAddress.postal_code }}<br />
+                            Phone: {{ shipment.shippingAddress.phone }}
+                        </p>
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
 
@@ -57,23 +65,21 @@ url: '/order/:orderId'
             {{ order.outputTrackingCodes() }}
             </div>
             {% endif %}
-          
-            <div class="row buffer-bottom">
-                <div class="col-sm-12">
-                    {{ partial('shop-orderitems') }}
-                </div>
+
+            <div class="clearfix py2">
+                {{ partial('shop-orderitems') }}
             </div>
 
-            <div class="row buffer-bottom">
-                <div class="col-sm-4">
+            <div class="clearfix py2">
+                <div class="sm-col sm-col-4">
                     {% if order.payment_method.has_payment_form() and not order.payment_processed() %}
                         <a class="button" href="{{ root_url('/review/'~order.order_hash) }}">Pay the order</a>
                     {% endif %}
                 </div>
-                
+
                 {{ partial('shop-ordertotals') }}
             </div>
-          
+
         {% else %}
             <div class="row">
                 <div class="col-sm-12">
@@ -81,7 +87,8 @@ url: '/order/:orderId'
                 </div>
             </div>
         {% endif %}
-        </div>
 
+
+        </div>
     </div>
 </div>
