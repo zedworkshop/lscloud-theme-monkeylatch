@@ -61,7 +61,8 @@
         <!-- Order Summary -->
         <div class="[ sm-col sm-col-4 sm-col-offset-4 ] order-summary">
 
-            <h6>Order Summary</h6>
+            <h6 class="xsmall uppercase mb2">Order Summary</h6>
+            <p class="small">Shipping costs and taxes will be evaluated during checkout.</p>
 
             {% if totals.discountTotal > 0 %}
             <p class="clearfix">
@@ -78,12 +79,12 @@
             {% endif %}
             <p class="clearfix">
                 <strong class="col col-6">Subtotal</strong>
-                <span class="col col-6 align-right">{{ totals.subtotal|currency }}</span>
+                <span class="col col-6 right-align">{{ totals.subtotal|currency }}</span>
             </p>
 
             <p class="clearfix">
                 <strong class="col col-6">Estimated total</strong>
-                <span class="col col-6 align-right">{{ totals.total|currency }}</span>
+                <span class="col col-6 right-align">{{ totals.total|currency }}</span>
             </p>
 
         </div>
@@ -92,7 +93,7 @@
     </div>
 
     <div class="full-width py3 border-top">
-        <a class="button button-transparent" href="{{ site_url('shop') }}">Continue shopping</a>
+        <a class="button button-transparent" href="{{ site_url('/') }}">Continue shopping</a>
         {% if customer %}
         <a class="button bg-red right" href="{{ site_url('/checkout') }}">Checkout</a>
         {% else %}
@@ -102,8 +103,7 @@
 
 {% else %}
     <div class="row">
-        <div class="col-sm-12">
-            <a class="btn btn-pop" href="{{ site_url('shop') }}">Your cart is empty! Continue shopping.</a>
-        </div>
+        <h4>Your cart is empty.</h4>
+        <a class="button bg-red" href="{{ site_url('/') }}">Continue shopping.</a>
     </div>
 {% endif %}

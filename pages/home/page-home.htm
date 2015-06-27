@@ -136,20 +136,22 @@ url: /
         {% else %}
         <div class="sm-col sm-col-8-3 px2 mb2">
         {% endif %}
-            <h6 class="uppercase xsmall">{{ product.name }} {{ product.fullPrice|currency }}</h6>
-            {% if product.related.count %}
-            {% for relatedProduct in product.related %}
-            {% if relatedProduct.sku != 'allen-key' %}
-            <figure>
-            {% if (product.sku == 'backpack-mount') %}
-                <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(480, 320)|default('http://placehold.it/480x320') }}"/>
-                {% else %}
-                <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(320, 240)|default('http://placehold.it/320x240') }}"/>
+            <a href="/product/{{ product.url_name }}">
+                <h6 class="uppercase xsmall">{{ product.name }} {{ product.fullPrice|currency }}</h6>
+                {% if product.related.count %}
+                {% for relatedProduct in product.related %}
+                {% if relatedProduct.sku != 'allen-key' %}
+                <figure>
+                {% if (product.sku == 'backpack-mount') %}
+                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(480, 320)|default('http://placehold.it/480x320') }}"/>
+                    {% else %}
+                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(320, 240)|default('http://placehold.it/320x240') }}"/>
+                    {% endif %}
+                </figure>
                 {% endif %}
-            </figure>
-            {% endif %}
-            {% endfor %}
-            {% endif %}
+                {% endfor %}
+                {% endif %}
+            </a>
         </div>
 
         {% endif %}

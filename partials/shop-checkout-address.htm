@@ -1,5 +1,10 @@
 {{ flash() }}
-{{ open_form({'class': 'custom', 'data-validation-message' : '' }) }}
+
+{{ open_form({'class': 'custom', 'data-validation-message' : ''}) }}
+
+<header class="py3 mb2 border-bottom" id="checkout-progress">
+    {{ partial("shop-checkout-progress") }}
+</header>
 
 <div class="clearfix mxn4">
     <div class="sm-col sm-col-6 px4">
@@ -73,7 +78,7 @@
             <div class="[ mxn2 mb2 clearfix ] form-group">
                 <label for="billing_state" class="[ md-col md-col-3 md-right-align mt1 px2 ]">State</label>
                 <div class="[ md-col md-col-6 px2 ]">
-                    <select id="billing_state" name="billingInfo[stateId]" class="form-control input-sm" data-ajax-refresh>
+                    <select id="billing_state" name="billingInfo[stateId]" class="form-control field-light block full-width" data-ajax-refresh>
                     {{ partial('shop-stateoptions', {'states': billingStates, 'selected': billingInfo.stateId}) }}
                     </select>
                     <span class="[ xsmall red ] error"></span>
@@ -83,7 +88,7 @@
             <div class="[ mxn2 mb2 clearfix ] form-group">
                 <label for="billing_country" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Country</label>
                 <div class="[ md-col md-col-6 px2 ]">
-                    <select class="fform-control field-light block full-width" id="billing_country" name="billingInfo[shop_country_id]" data-state-selector="#billing_state" data-current-state="{{ billingInfo.country.id }}">
+                    <select class="form-control field-light block full-width" id="billing_country" name="billingInfo[shop_country_id]" data-state-selector="#billing_state" data-current-state="{{ billingInfo.country.id }}">
                         {% for country in countries %}
                         <option {{ option_state(billingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
                         {% endfor %}
@@ -165,7 +170,7 @@
             <div class="[ mxn2 mb2 clearfix ] form-group">
                 <label for="billing_state" class="[ md-col md-col-3 md-right-align mt1 px2 ]">State</label>
                 <div class="[ md-col md-col-6 px2 ]">
-                    <select id="shipping_state" name="shippingInfo[stateId]" class="form-control input-sm" data-ajax-refresh>
+                    <select id="shipping_state" name="shippingInfo[stateId]" class="form-control field-light block full-width" data-ajax-refresh>
                     {{ partial('shop-stateoptions', {'states': shippingStates, 'selected': shippingInfo.stateId}) }}
                     </select>
                     <span class="[ xsmall red ] error"></span>
@@ -175,7 +180,7 @@
             <div class="[ mxn2 mb2 clearfix ] form-group">
                 <label for="billing_country" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Country</label>
                 <div class="[ md-col md-col-6 px2 ]">
-                    <select id="shipping_country" name="shippingInfo[countryId]" class="form-control input-sm" data-state-selector="#shipping_state" data-current-state="{{ shippingInfo.stateId }}">
+                    <select id="shipping_country" name="shippingInfo[countryId]" class="form-control field-light block full-width" data-state-selector="#shipping_state" data-current-state="{{ shippingInfo.stateId }}">
                         {% for country in countries %}
                         <option {{ option_state(shippingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
                         {% endfor %}
@@ -191,9 +196,9 @@
 
 <div class="right-align py3">
     <!-- See the onSetBillingAndShippignInfo AJAX handler implementation on the Checkout page's AJAX tab -->
-    <a class="button" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #breadcrumbs-area=shop-checkout-progress, #mini-cart=shop-minicart">Save and Continue</a>
+    <a class="button" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout,#checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart">Save and Continue</a>
 </div>
 
-<input type="hidden" name="step" value="billing_info,shipping_info"/>
+<input type="hidden" id="billing-current-step" name="step" value="billing_info,shipping_info"/>
 
-{{ close_form }}
+{{ close_form() }}
