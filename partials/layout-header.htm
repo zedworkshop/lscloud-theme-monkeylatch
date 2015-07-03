@@ -19,7 +19,7 @@
             <nav class="[ inline-block middle uppercase right mt1 ] sitenav">
                 <a href="{{ site_url('products') }}" class="[ button button-transparent white ]">Products</a>
                 <a href="#" class="[ button button-transparent white ]">Learn</a>
-                <a href="#" class="[ button button-transparent white ]">Contact</a>
+                <a href="{{ site_url('about') }}" class="[ button button-transparent white ]">Contact</a>
                 {% if customer %}
                 <a href="{{ site_url('logout') }}" class="[ button button-transparent white ]">Logout</a>
                 {% else %}

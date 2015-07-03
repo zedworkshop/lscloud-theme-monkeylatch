@@ -10,16 +10,61 @@ url: /
 ---
 
 <div class="[ container px2 py3 ]">
-    <div class="[ clearfix ]">
-        Click
+    <div class="[ clearfix overflow-hidden ]">
+
+        <div class="[ col col-12 mb3 ] main-gallery">
+            <div class="gallery-cell">
+                <a href="{{ site_url('product/studio-kit') }}">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="{{ 'img/slider-images-1.png'|theme_resource }}" media="(min-width: 600px)"/>
+                        <!--[if IE 9]></video><![endif]-->
+                        <img srcset="{{ 'img/slider-images-1-sm.png'|theme_resource }}" alt=""/>
+                    </picture>
+                </a>
+            </div>
+            <div class="gallery-cell">
+                <a href="{{ site_url('product/sling-kit') }}">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="{{ 'img/slider-images-2.png'|theme_resource }}" media="(min-width: 600px)"/>
+                        <!--[if IE 9]></video><![endif]-->
+                        <img srcset="{{ 'img/slider-images-2-sm.png'|theme_resource }}" alt=""/>
+                    </picture>
+                </a>
+            </div>
+            <div class="gallery-cell">
+                <a href="{{ site_url('product/backpack-mount') }}">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="{{ 'img/slider-images-3.png'|theme_resource }}" media="(min-width: 600px)"/>
+                        <!--[if IE 9]></video><![endif]-->
+                        <img srcset="{{ 'img/slider-images-3-sm.png'|theme_resource }}" alt=""/>
+                    </picture>
+                </a>
+            </div>
+        </div>
+
     </div>
 </div>
 <div class="bg-brand-primary">
     <div class="[ container px2 py3 ]">
-        <header class="center">
+        <header class="center mb2">
             <h2 class="uppercase white mb0 mt0">Super Convenient</h2>
             <h4 class="white mt0">The best quick-release system for convenient use of multiple accessories</h4>
         </header>
+
+        <div class="col-12 center mb2 relative">
+            <img alt="" src="{{ 'img/jump-image.png'|theme_resource }}" />
+
+            <!-- <div class="clearfix absolute left-0 top-0 bottom-0 right-0 mt2">
+                <a href="#" class="col col-fifth cushion-top cushion-bottom"></a>
+                <a href="#" class="col col-fifth cushion-top cushion-bottom"></a>
+                <a href="#" class="col col-fifth cushion-top cushion-bottom"></a>
+                <a href="#" class="col col-fifth cushion-top cushion-bottom"></a>
+                <a href="#" class="col col-fifth cushion-top cushion-bottom"></a>
+            </div> -->
+        </div>
     </div>
 </div>
 <div class="[ bg-gray bgimg-raster-grey bg-cover bg-center ]">

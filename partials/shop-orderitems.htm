@@ -2,7 +2,6 @@
     <table class="table-light">
         <thead>
             <tr>
-                <th></th>
                 <th>Product</th>
                 <th class="narrow">Quantity</th>
                 <th class="narrow">Price</th>
@@ -15,14 +14,8 @@
             {% for shipment in invoice.shipments %}
             {% for item in shipment.shipmentItems %}
             <tr>
-                <td class="py2">
-                    <a href="/product/{{ item.product.url_name }}">
-                        <img src="{{ item.product.images.first.thumbnail(80, 80)|default('http://placehold.it/80x80') }}" />
-                    </a>
-                </td>
-                <td class="py2">
-                    <h6><a href="/product/{{ item.product.url_name }}">{{ item.product.name }}</a>
-                    </h6>
+                <td>
+                    <h6><a href="/product/{{ item.product.url_name }}">{{ item.product.name }}</a></h6>
                     {% set description = item.optionsString() %} {% if description %}
                     <span class="text-muted small">{{ description|unescape }}</span>
                     {% endif %}

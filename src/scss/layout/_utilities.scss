@@ -96,6 +96,11 @@ Layout
 
 */
 
+.fill-height {
+	height: 100%;
+}
+
+
 .full-height {
 	@media #{$breakpoint-sm} {
 		min-height: 100%;

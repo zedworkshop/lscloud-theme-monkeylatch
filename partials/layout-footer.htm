@@ -14,7 +14,7 @@
             <div class="col col-6 sm-col-2">
                 <h5 class="uppercase">Shop</h5>
                 <ul class="list-reset">
-                    <li><a href="#">Products</a></li>
+                    <li><a href="{{ site_url('products') }}">Products</a></li>
                     <li><a href="{{ site_url('orders') }}">Order History</a></li>
                     <li><a href="{{ site_url('profile') }}">Account</a></li>
                 </ul>
@@ -22,26 +22,27 @@
             <div class="col col-6 sm-col-2">
                 <h5 class="uppercase">Support</h5>
                 <ul class="list-reset">
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Shipping</a></li>
+                    <li><a href="{{ site_url('returns') }}">Returns</a></li>
+                    <li><a href="{{ site_url('shipping') }}">Shipping</a></li>
                     <li><a href="{{ site_url('contact') }}">Contact</a>
                 </ul>
             </div>
-            <div class="col col-6 sm-col-6 sm-right-align">
-                <ul class="list-reset">
-                    {% if theme.socialFacebookUrl %}
-                    <li><a href="{{ theme.socialFacebookUrl }}"><i class="fa fa-2x fa-facebook"></i><span class="sr-only">Facebook</span></a></li>
-                    {% endif %}
-                    {% if theme.socialTwitterUrl %}
-                    <li><a href="{{ theme.socialTwitterUrl }}"><i class="fa fa-2x fa-twitter"></i><span class="sr-only">Twitter</span></a></li>
-                    {% endif %}
-                    {% if theme.socialInstagramUrl %}
-                    <li><a href="{{ theme.socialInstagramUrl }}"><i class="fa fa-2x fa-instagram"></i><span class="sr-only">Instagram</span></a></li>
-                    {% endif %}
-                    {% if theme.socialPinterestUrl %}
-                    <li><a href="{{ theme.socialPinterestUrl }}"><i class="fa fa-2x fa-pinterest"></i><span class="sr-only">Pinterest</span></a></li>
-                    {% endif %}
-                </ul>
+            <div class="col col-6 sm-right-align">
+                {% if theme.socialFacebookUrl %}
+                <a class="inline-block social-item bg-white brand-grey ml1 mr1" href="{{ theme.socialFacebookUrl }}"><i class="icon ion-social-facebook"></i><span class="sr-only">Facebook</span></a>
+                {% endif %}
+                {% if theme.socialTwitterUrl %}
+                <a class="inline-block social-item bg-white brand-grey ml1 mr1" href="{{ theme.socialTwitterUrl }}"><i class="icon ion-social-twitter"></i><span class="sr-only">Twitter</span></a>
+                {% endif %}
+                {% if theme.socialInstagramUrl %}
+                <a class="inline-block social-item bg-white brand-grey ml1 mr1" href="{{ theme.socialInstagramUrl }}"><i class="icon ion-social-instagram"></i><span class="sr-only">Instagram</span></a>
+                {% endif %}
+                {% if theme.socialPinterestUrl %}
+                <a class="inline-block social-item bg-white brand-grey ml1 mr1" href="{{ theme.socialPinterestUrl }}"><i class="icon ion-social-pinterest"></i><span class="sr-only">Pinterest</span></a>
+                {% endif %}
+                {% if theme.socialYoutubeUrl %}
+                <a class="inline-block social-item bg-white brand-grey ml1 mr1" href="{{ theme.socialYoutubeUrl }}"><i class="icon ion-social-youtube-outline"></i><span class="sr-only">YouTube</span></a>
+                {% endif %}
             </div>
         </div>
 

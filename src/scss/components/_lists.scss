@@ -10,3 +10,14 @@
 		overflow: hidden;
 	}
 }
+
+.social-item {
+	border: 1px solid darken($brand-grey, 20);
+	border-radius: 50%;
+	height: 36px;
+	width: 36px;
+	text-align: center;
+	font-size: 20px;
+	line-height: 36px;
+	padding: 0;
+}

@@ -5,9 +5,10 @@ website: 'http://monkeylatch.ca'
 engine: twig
 404: '404'
 customFields:
-    socialFacebookUrl: { type: text, title: 'Facebook URL', default: 'http://facebook.com/clearsolutions' }
-    socialTwitterUrl: { type: text, title: 'Twitter URL', default: 'http://twitter.com/clearsolutions' }
-    socialInstagramUrl: { type: text, title: 'Instagram URL', default: 'http://instagram.com/clearsolutions' }
-    socialPinterestUrl: { type: text, title: 'Pinterest URL', default: 'http://pinterest.com/clearsolutions' }
-    footerTagline: { type: text, title: 'Footer tagline', default: 'Clear Solutions', comment: 'Suggested length is less than 40 characters' }
+    socialFacebookUrl: { type: text, title: 'Facebook URL', default: 'http://facebook.com/monkeylatch' }
+    socialTwitterUrl: { type: text, title: 'Twitter URL', default: 'http://twitter.com/monkeylatch' }
+    socialInstagramUrl: { type: text, title: 'Instagram URL', default: 'http://instagram.com/monkeylatch' }
+    socialPinterestUrl: { type: text, title: 'Pinterest URL', default: 'http://pinterest.com/monkeylatch' }
+    socialYoutubeUrl: { type: text, title: 'YouTube URL', default: 'http://pinterest.com/monkeylatch' }
+    footerTagline: { type: text, title: 'Footer tagline', default: 'Monkey Latch', comment: 'Suggested length is less than 40 characters' }
 ---

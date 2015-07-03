@@ -50,14 +50,21 @@
 	@media #{$breakpoint-sm} {
 		.button {
 			font-size: 0.9rem;
+			background: none;
+			border: 0 transparent;
 			border-bottom: 3px solid transparent;
 
 			&-small {
 				font-size: 0.75rem;
 			}
 
-			&:hover {
-				border-bottom-color: $red;
+			&:active,
+			&:hover,
+			&:focus {
+				background: none;
+				box-shadow: none;
+				border: 0 transparent;
+				border-bottom: 3px solid $red;
 			}
 		}
 	}
