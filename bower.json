@@ -7,7 +7,7 @@
   "description": "LemonStand theme for Monkey Latch",
   "main": "build.html",
   "license": "MIT",
-  "homepage": "https://monkeylatch.ca",
+  "homepage": "https://monkeylatch.com",
   "ignore": [
     "**/.*",
     "node_modules",
