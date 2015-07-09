@@ -7,5 +7,5 @@ Created by: [Adam Campbell](http://zedworkshop.com) ([@hotmeteor](http://twitter
 
 #### Quick Install
 
-1. Download this theme as a [zip file](https://github.com/decorepair/lscloud-theme-monkeylatch/archive/master.zip)
+1. Download this theme as a [zip file](https://github.com/zedworkshop/lscloud-theme-monkeylatch/archive/master.zip)
 2. Follow the instructions for [importing a theme](http://docs.lemonstand.com/article/69-how-to-import-a-theme)
