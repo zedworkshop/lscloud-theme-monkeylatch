@@ -144,3 +144,9 @@ gulp.task('bump', function() {
         }))
         .pipe(gulp.dest('./'));
 });
+
+gulp.task('email', function () {
+    gulp.src(paths.dev + '/email/*.html')
+        .pipe($.premailer())
+        .pipe(gulp.dest(paths.build + '/email/'));
+});
