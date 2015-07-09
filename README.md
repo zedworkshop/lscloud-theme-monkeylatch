@@ -1,7 +1,7 @@
 Monkey Latch
 =============
 
-### The default [LemonStand](https://lemonstand.com/) theme for [Monkey Latch](https://monkeylatch.ca/).
+### The default [LemonStand](https://lemonstand.com/) theme for [Monkey Latch](https://monkeylatch.com/).
 
 Created by: [Adam Campbell](http://zedworkshop.com) ([@hotmeteor](http://twitter.com/hotmeteor))
 
