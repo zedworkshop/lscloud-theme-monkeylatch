@@ -15,20 +15,27 @@
                 {% if product.related.count %}
 
                     {% for relatedProduct in product.related %}
+                    <div class="center clearfix mb2">
                     {% if relatedProduct.sku != 'allen-key' %}
-                    <div class="center mb1">
-                        <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(320, 240)|default('http://placehold.it/320x240') }}"/>
+                    {% for relatedImage in relatedProduct.images %}
+                    <div class="inline-block col-6 mxn1">
+                        <img alt="{{ relatedProduct.name }} image" src="{{ relatedImage.thumbnail(320, 240)|default('http://placehold.it/320x240') }}"/>
                     </div>
+                    {% endfor %}
                     {% endif %}
+                    </div>
                     {% endfor %}
 
                 {% endif %}
             </div>
 
-            <div class="clearfix center mxn1">
+            <div class="clearfix center mxn2">
             {% if product.categories.count %}
                 {% for category in product.categories %}
-                <div class="col col-6 sm-col sm-col-fifth px1">
+                <div class="inline-block col-6 sm-col-fifth px1 mxn1 top">
+                    <figure class="thumb thumb-xs">
+                        <img alt="" src="{{ category.images.first.thumbnail(60, 40)|default('http://placehold.it/40x40') }}" />
+                    </figure>
                     <h6 class="uppercase xsmall">{{ category.name }}</h6>
                     <p class="xsmall">{{ category.short_description }}</p>
                 </div>

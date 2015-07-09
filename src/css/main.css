@@ -2464,6 +2464,9 @@ Alignment
   .lg-right-align {
     text-align: right; } }
 
+.top {
+  vertical-align: top; }
+
 .middle {
   vertical-align: middle; }
 
@@ -2572,6 +2575,12 @@ Padding
   .gallery-cell {
     min-height: 300px; } }
 
+@media (min-width: 64em) {
+  .main-gallery {
+    min-height: 400px; }
+  .gallery-cell {
+    min-height: 400px; } }
+
 .quick-scene {
   box-sizing: border-box;
   padding-bottom: 38%; }
@@ -2611,3 +2620,13 @@ Padding
   .related-product__desc p {
     font-size: 0.9rem;
     line-height: 1.5; } }
+
+.thumb {
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto; }
+
+.thumb-xs {
+  height: 40px; }
+  .thumb-xs img {
+    max-height: 100%; }

@@ -157,9 +157,11 @@ url: /
 
                 {% for relatedProduct in product.related %}
                 {% if relatedProduct.sku != 'allen-key' %}
+                {% for relatedImage in relatedProduct.images %}
                 <figure class="sm-col sm-col-4">
-                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(320, 240)|default('http://placehold.it/320x240') }}"/>
+                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedImage.thumbnail(320, 240)|default('http://placehold.it/320x240') }}"/>
                 </figure>
+                {% endfor %}
                 {% endif %}
                 {% endfor %}
 

@@ -28,6 +28,16 @@
 	}
 }
 
+@media #{$breakpoint-lg} {
+	.main-gallery {
+		min-height: 400px;
+	}
+
+	.gallery-cell {
+		min-height: 400px;
+	}
+}
+
 
 // Super Quick
 
