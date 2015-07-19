@@ -73,7 +73,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="billing_state" class="[ md-col md-col-3 md-right-align mt1 px2 ]">State</label>
         <div class="[ md-col md-col-6 px2 ]">
-            <select class="form-control field-light block full-width" id="billing_state" name="billing[shop_state_id]" data-ajax-refresh data-mirror>
+            <select class="field-light block full-width" id="billing_state" name="billing[shop_state_id]" data-ajax-refresh data-mirror>
                 {{ partial('shop-stateoptions', {'states': billingStates, 'selected': billing.state.id}) }}
             </select>
             <span class="[ xsmall red ] error"></span>
@@ -83,7 +83,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="billing_country" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Country</label>
         <div class="[ md-col md-col-6 px2 ]">
-            <select class="fform-control field-light block full-width" id="billing_country" name="billing[shop_country_id]" data-state-selector="#billing_state" data-current-state="{{ billing.country.id }}" data-mirror>
+            <select class="field-light block full-width" id="billing_country" name="billing[shop_country_id]" data-state-selector="#billing_state" data-current-state="{{ billing.country.id }}" data-mirror>
                 {% for country in countries %}
                 <option {{ option_state(billing.country.id, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
                 {% endfor %}
@@ -163,7 +163,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="shipping_state" class="[ md-col md-col-3 md-right-align mt1 px2 ]">State</label>
         <div class="[ md-col md-col-6 px2 ]">
-            <select class="form-control field-light block full-width" id="shipping_state" name="shipping[shop_state_id]" data-ajax-refresh data-mirror>
+            <select class="field-light block full-width" id="shipping_state" name="shipping[shop_state_id]" data-ajax-refresh data-mirror>
                 {{ partial('shop-stateoptions', {'states': shippingStates, 'selected': shipping.stateId}) }}
             </select>
             <span class="[ xsmall red ] error"></span>
@@ -173,7 +173,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="shipping_country" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Country</label>
         <div class="[ md-col md-col-6 px2 ]">
-            <select class="fform-control field-light block full-width" id="shipping_country" name="shipping[shop_country_id]" data-state-selector="#shipping_state" data-current-state="{{ shipping.country.id }}" data-mirror>
+            <select class="field-light block full-width" id="shipping_country" name="shipping[shop_country_id]" data-state-selector="#shipping_state" data-current-state="{{ shipping.country.id }}" data-mirror>
                 {% for country in countries %}
                 <option {{ option_state(shipping.country.id, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
                 {% endfor %}

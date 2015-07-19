@@ -56,26 +56,26 @@ $(document).ready(function() {
         var $doc = $(document);
         var $chk = $doc.find('.js-mirrordata');
 
-        $(document).on('click', $chk, function() {
-            if ($(this).is(':checked')) {
+        $chk.on('click', function() {
+
+            if (!$(this).is(':checked')) {
+                console.log('yes');
                 $(this).data('toggle-mirror', 'off').find('.fa-check').css('visibility', 'hidden');
                 sessionStorage.toggleMirror = 'off';
 
-                $('#shipping-info').each(function(i, div) {
-                    $(div).find('input, select').each(function(j, element) {
-                        $(element).prop('readonly', false);
-                    });
+                $('#shipping-info').find('[data-mirror]').each(function(j, element) {
+                    $(element).removeClass('disabled');
                 });
 
             } else {
+                console.log('no');
+
                 $(this).data('toggle-mirror', 'on').find('.fa').css('visibility', 'visible');
                 sessionStorage.toggleMirror = 'on';
                 mirrorAll();
 
-                $('#shipping-info').each(function(i, div) {
-                    $(div).find('input, select').each(function(j, element) {
-                        $(element).prop('readonly', true);
-                    });
+                $('#shipping-info').find('[data-mirror]').each(function(j, element) {
+                    $(element).addClass('disabled');
                 });
             }
         });
@@ -100,9 +100,6 @@ $(document).ready(function() {
             });
         }
 
-        mirrorFields('#billing-info [data-mirror]', '#shipping-info [data-mirror]', 'keyup keypress blur change');
-        //mirrorFields('#billing-info select[data-mirror]', '#shipping-info select[data-mirror]', 'change');
-
         //mirror all fields
         function mirrorAll() {
             $('#billing-info [data-mirror]').each(function(idx) {
@@ -114,9 +111,13 @@ $(document).ready(function() {
         }
 
         $(window).load(function() {
-            if ($chk.is(':checked')) {
-                mirrorAll();
+
+            if (sessionStorage.toggleMirror == 'on') {
+                $chk.click();
             }
+
+            mirrorFields('#billing-info [data-mirror]', '#shipping-info [data-mirror]', 'keyup keypress blur change');
+
         });
 
         //country select
