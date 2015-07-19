@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths placeholder wf-lato-n4-active wf-lato-n7-active wf-oswald-n7-active wf-active" lang="en"><!--<![endif]--><head>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="">
+<meta name="Keywords" content="">
+
+<title>Profile · Monkey Latch™</title>
+
+<link rel="shortcut icon" href="//d2qq4423n7kgsb.cloudfront.net/store-monkeylatch-54863e326a33c/themes/monkeylatch-default/resources/favicon.ico?1436451970">
+<link rel="stylesheet" type="text/css" href="/cms/core.css">
+<link rel="stylesheet" type="text/css" href="//d2qq4423n7kgsb.cloudfront.net/store-monkeylatch-54863e326a33c/themes/monkeylatch-default/resources/css/main.css?1436453820">
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" async="">
+
+<script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" type="text/javascript" async=""></script><script>
+document.createElement( "picture" );
+</script><style type="text/css"></style>
+<script type="text/javascript" src="//d2qq4423n7kgsb.cloudfront.net/store-monkeylatch-54863e326a33c/themes/monkeylatch-default/resources/js/init.js?1436453819" async=""></script>
+
+<script type="text/javascript">
+    WebFontConfig = {
+        google: { families: [ 'Lato:400,700:latin', 'Oswald:700:latin' ] }
+    };
+    (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+</script><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700%7COswald:700&amp;subset=latin,latin" media="all">
+</head>
+
+<body class="body" style="zoom: 1;" cz-shortcut-listen="true">
+    <!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Siteheader -->
+<header class="[ relative bg-brand-secondary ] siteheader">
+
+    <div class="[ container px2 pyr3 relative ]">
+        <div class="clearfix">
+
+            <div class="[ inline-block middle col-3 sm-col-2 ] sitebrand">
+                <a href="/" class="logo">
+                    <img alt="Monkey Latch logo" src="//d2qq4423n7kgsb.cloudfront.net/store-monkeylatch-54863e326a33c/themes/monkeylatch-default/resources/img/logo.png?1436451981">
+                </a>
+            </div>
+
+            <a href="#" class="[ button bg-white black right ] sm-hide">Menu</a>
+
+            <nav class="[ inline-block middle uppercase right mt1 ] sitenav">
+                <a href="//monkeylatch.com/products" class="[ button button-transparent white ]">Products</a>
+                <!-- <a href="#" class="[ button button-transparent white ]">Learn</a> -->
+                <a href="//monkeylatch.com/about" class="[ button button-transparent white ]">Contact</a>
+                <a href="//monkeylatch.com/logout" class="[ button button-transparent white ]">Logout</a>
+
+                <div class="[ block right-align ] minicart" id="mini-cart">
+                    <a class="[ button button-transparent button-small white ]" href="//monkeylatch.com/profile">Adam's Account</a>
+                    <a href="//monkeylatch.com/cart" class="[ button button-transparent button-small white ]">Cart</a>
+
+                </div>
+            </nav>
+
+
+        </div>
+    </div>
+
+</header>
+<!--// Siteheader -->
+<div class="container px2 cushion-bottom">
+
+    <header class="py2">
+        <h1>Profile</h1>
+    </header>
+
+    <div class="clearfix">
+
+        <div class="sm-col sm-col-3">
+         <h5 class="uppercase gray bold mb3">
+          Adam Campbell
+      </h5>
+
+      <ul class="list-reset">
+         <li class="mb1"><a href="//monkeylatch.com/orders">Order History</a></li>
+         <li class="mb1"><a href="//monkeylatch.com/profile">Addresses</a></li>
+         <li class="mb1"><a href="//monkeylatch.com/password">Password</a></li>
+     </ul>
+ </div>
+
+ <hr class="sm-hide">
+
+ <div class="sm-col sm-col-6" id="profile-addresses">
+
+
+    <form data-ajax-handler="shop:onUpdateCustomerProfile" class="form-horizontal custom" data-ajax-update="#profile-addresses=shop-customerprofile" data-validation-message="" method="post" action="/profile">
+
+        <input type="hidden" name="billing[id]" value="1">
+
+        <h4 class="mb2">Billing Information</h4>
+
+        <section id="billing-info">
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label class="[ md-col md-col-3 md-right-align mt1 px2 ]">Your Name</label>
+                <div class="[ md-col md-col-9 px2 ]">
+                    <div class="clearfix mxn1">
+                        <div class="col col-6 px1">
+                            <label for="billing[first_name]" class="control-label sr-only">First Name</label>
+                            <input type="text" class="form-control field-light block full-width" id="billing[first_name]" name="billing[first_name]" value="Adam" size="20" placeholder="First Name" data-input="first_name">
+                            <span class="[ xsmall red ] error"></span>
+                        </div>
+
+                        <div class="col col-6 px1">
+                            <label for="billing[last_name]" class="control-label sr-only">Last Name</label>
+                            <input type="text" class="form-control field-light block full-width" id="billing[last_name]" name="billing[last_name]" value="Campbell" size="20" placeholder="Last Name" data-input="last_name">
+                            <span class="[ xsmall red ] error"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label for="billing[email]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Email</label>
+                <div class="[ md-col md-col-9 px2 ]">
+                    <input type="email" class="form-control field-light block full-width" id="billing[email]" name="billing[email]" value="adam@zedworkshop.com" size="40" data-input="email">
+                    <span class="[ xsmall red ] error"></span>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label for="billing[phone]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Phone</label>
+                <div class="[ md-col md-col-9 px2 ]">
+                    <input type="tel" class="form-control field-light block full-width" id="billing[phone]" name="billing[phone]" value="" size="16" data-input="phone">
+                    <span class="[ xsmall red ] error"></span>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label for="billing[street_address]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Address</label>
+                <div class="[ md-col md-col-9 px2 ]">
+                    <input type="text" class="form-control field-light block full-width" id="billing[street_address]" name="billing[street_address]" value="1201 Lowell Dr SE" size="40" placeholder="Street" data-input="street_address">
+                    <span class="[ xsmall red ] error"></span>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <div class="[ md-col md-col-9 md-col-offset-3 px2 ]">
+
+                    <div class="clearfix mxn1">
+                        <div class="col col-6 px1">
+                            <label for="billing[city]" class="control-label sr-only">City</label>
+                            <input type="text" class="form-control field-light block full-width" id="billing[city]" name="billing[city]" value="Huntsville" size="20" placeholder="City" data-input="city">
+                            <span class="[ xsmall red ] error"></span>
+                        </div>
+
+                        <div class="col col-6 px1">
+                            <label for="billing[postal_code]" class="control-label sr-only">Zip</label>
+                            <input type="text" class="form-control field-light block full-width" id="billing[postal_code]" name="billing[postal_code]" value="35801" size="6" placeholder="Zip" data-input="postal_code">
+                            <span class="[ xsmall red ] error"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label for="billing_state" class="[ md-col md-col-3 md-right-align mt1 px2 ]">State</label>
+                <div class="[ md-col md-col-6 px2 ]">
+                    <select class="form-control field-light block full-width" id="billing_state" name="billing[shop_state_id]" data-ajax-refresh="">
+                        <option value="1" selected="">
+                            Alabama
+                        </option>
+                        <option value="2">
+                            Alaska
+                        </option>
+                        <option value="3">
+                            American Samoa
+                        </option>
+                        <option value="4">
+                            Arizona
+                        </option>
+                        <option value="5">
+                            Arkansas
+                        </option>
+                        <option value="6">
+                            California
+                        </option>
+                        <option value="7">
+                            Colorado
+                        </option>
+                        <option value="8">
+                            Connecticut
+                        </option>
+                        <option value="9">
+                            Delaware
+                        </option>
+                        <option value="10">
+                            Dist. of Columbia
+                        </option>
+                        <option value="11">
+                            Florida
+                        </option>
+                        <option value="12">
+                            Georgia
+                        </option>
+                        <option value="13">
+                            Guam
+                        </option>
+                        <option value="14">
+                            Hawaii
+                        </option>
+                        <option value="15">
+                            Idaho
+                        </option>
+                        <option value="16">
+                            Illinois
+                        </option>
+                        <option value="17">
+                            Indiana
+                        </option>
+                        <option value="18">
+                            Iowa
+                        </option>
+                        <option value="19">
+                            Kansas
+                        </option>
+                        <option value="20">
+                            Kentucky
+                        </option>
+                        <option value="21">
+                            Louisiana
+                        </option>
+                        <option value="22">
+                            Maine
+                        </option>
+                        <option value="24">
+                            Marshall Islands
+                        </option>
+                        <option value="23">
+                            Maryland
+                        </option>
+                        <option value="25">
+                            Massachusetts
+                        </option>
+                        <option value="26">
+                            Michigan
+                        </option>
+                        <option value="27">
+                            Micronesia
+                        </option>
+                        <option value="28">
+                            Minnesota
+                        </option>
+                        <option value="29">
+                            Mississippi
+                        </option>
+                        <option value="30">
+                            Missouri
+                        </option>
+                        <option value="31">
+                            Montana
+                        </option>
+                        <option value="32">
+                            Nebraska
+                        </option>
+                        <option value="33">
+                            Nevada
+                        </option>
+                        <option value="34">
+                            New Hampshire
+                        </option>
+                        <option value="35">
+                            New Jersey
+                        </option>
+                        <option value="36">
+                            New Mexico
+                        </option>
+                        <option value="37">
+                            New York
+                        </option>
+                        <option value="38">
+                            North Carolina
+                        </option>
+                        <option value="39">
+                            North Dakota
+                        </option>
+                        <option value="40">
+                            Northern Marianas
+                        </option>
+                        <option value="41">
+                            Ohio
+                        </option>
+                        <option value="42">
+                            Oklahoma
+                        </option>
+                        <option value="43">
+                            Oregon
+                        </option>
+                        <option value="44">
+                            Palau
+                        </option>
+                        <option value="45">
+                            Pennsylvania
+                        </option>
+                        <option value="46">
+                            Puerto Rico
+                        </option>
+                        <option value="47">
+                            Rhode Island
+                        </option>
+                        <option value="48">
+                            South Carolina
+                        </option>
+                        <option value="49">
+                            South Dakota
+                        </option>
+                        <option value="50">
+                            Tennessee
+                        </option>
+                        <option value="51">
+                            Texas
+                        </option>
+                        <option value="52">
+                            Utah
+                        </option>
+                        <option value="53">
+                            Vermont
+                        </option>
+                        <option value="55">
+                            Virgin Islands
+                        </option>
+                        <option value="54">
+                            Virginia
+                        </option>
+                        <option value="56">
+                            Washington
+                        </option>
+                        <option value="57">
+                            West Virginia
+                        </option>
+                        <option value="58">
+                            Wisconsin
+                        </option>
+                        <option value="59">
+                            Wyoming
+                        </option>
+
+                    </select>
+                    <span class="[ xsmall red ] error"></span>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label for="billing_country" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Country</label>
+                <div class="[ md-col md-col-6 px2 ]">
+                    <select class="fform-control field-light block full-width" id="billing_country" name="billing[shop_country_id]" data-state-selector="#billing_state" data-current-state="1">
+                        <option value="3">Australia</option>
+                        <option value="11">Austria</option>
+                        <option value="12">Belgium</option>
+                        <option value="51">Brazil</option>
+                        <option value="2">Canada</option>
+                        <option value="63">Chile</option>
+                        <option value="14">Czech Republic</option>
+                        <option value="15">Denmark</option>
+                        <option value="13">Finland</option>
+                        <option value="4">France</option>
+                        <option value="5">Germany</option>
+                        <option value="98">Greece</option>
+                        <option value="112">Hong Kong</option>
+                        <option value="6">Iceland</option>
+                        <option value="118">Israel</option>
+                        <option value="8">Italy</option>
+                        <option value="120">Japan</option>
+                        <option value="138">Luxembourg</option>
+                        <option value="155">Monaco</option>
+                        <option value="22">Netherlands</option>
+                        <option value="19">New Zealand</option>
+                        <option value="16">Norway</option>
+                        <option value="183">Poland</option>
+                        <option value="21">Portugal</option>
+                        <option value="187">Romania</option>
+                        <option value="204">Singapore</option>
+                        <option value="209">South Africa</option>
+                        <option value="9">Spain</option>
+                        <option value="10">Sweden</option>
+                        <option value="18">Switzerland</option>
+                        <option value="232">Ukraine</option>
+                        <option value="17">United Kingdom</option>
+                        <option selected="" value="1">United States</option>
+                    </select>
+                    <span class="[ xsmall red ] error"></span>
+                </div>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <h4 class="mb2">Shipping Information</h4>
+
+        <div class="checkbox mb3">
+            <label>
+                <input type="checkbox" class="js-mirrordata"> My shipping information is the same as my billing
+            </label>
+        </div>
+
+        <section id="shipping-info">
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label class="[ md-col md-col-3 md-right-align mt1 px2 ]">Your Name</label>
+                <div class="[ md-col md-col-9 px2 ]">
+                    <div class="clearfix mxn1">
+                        <div class="col col-6 px1">
+                            <label for="shipping[first_name]" class="control-label sr-only">First Name</label>
+                            <input type="text" class="form-control field-light block full-width" id="shipping[first_name]" name="shipping[first_name]" value="Adam" size="20" placeholder="First Name" data-input="first_name">
+                            <span class="[ xsmall red ] error"></span>
+                        </div>
+
+                        <div class="col col-6 px1">
+                            <label for="shipping[last_name]" class="control-label sr-only">Last Name</label>
+                            <input type="text" class="form-control field-light block full-width" id="shipping[last_name]" name="shipping[last_name]" value="Campbell" size="20" placeholder="Last Name" data-input="last_name">
+                            <span class="[ xsmall red ] error"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label for="shipping[phone]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Phone</label>
+                <div class="[ md-col md-col-9 px2 ]">
+                    <input type="tel" class="form-control field-light block full-width" id="shipping[phone]" name="shipping[phone]" value="2565297711" size="16" data-input="phone">
+                    <span class="[ xsmall red ] error"></span>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label for="shipping[street_address]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Address</label>
+                <div class="[ md-col md-col-9 px2 ]">
+                    <input type="text" class="form-control field-light block full-width" id="shipping[street_address]" name="shipping[street_address]" value="1201 Lowell Drive" size="40" placeholder="Street" data-input="street_address">
+                    <span class="[ xsmall red ] error"></span>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <div class="[ md-col md-col-9 md-col-offset-3 px2 ]">
+
+                    <div class="clearfix mxn1">
+                        <div class="col col-6 px1">
+                            <label for="shipping[city]" class="control-label sr-only">City</label>
+                            <input type="text" class="form-control field-light block full-width" id="shipping[city]" name="shipping[city]" value="Huntsville" size="20" placeholder="City" data-input="city">
+                            <span class="[ xsmall red ] error"></span>
+                        </div>
+
+                        <div class="col col-6 px1">
+                            <label for="shipping[postal_code]" class="control-label sr-only">Zip</label>
+                            <input type="text" class="form-control field-light block full-width" id="shipping[postal_code]" name="shipping[postal_code]" value="35801" size="6" placeholder="Zip" data-input="postal_code">
+                            <span class="[ xsmall red ] error"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label for="shipping_state" class="[ md-col md-col-3 md-right-align mt1 px2 ]">State</label>
+                <div class="[ md-col md-col-6 px2 ]">
+                    <select class="form-control field-light block full-width" id="shipping_state" name="shipping[shop_state_id]" data-ajax-refresh="" data-input="shop_state_id">
+                        <option value="1">
+                            Alabama
+                        </option>
+                        <option value="2">
+                            Alaska
+                        </option>
+                        <option value="3">
+                            American Samoa
+                        </option>
+                        <option value="4">
+                            Arizona
+                        </option>
+                        <option value="5">
+                            Arkansas
+                        </option>
+                        <option value="6">
+                            California
+                        </option>
+                        <option value="7">
+                            Colorado
+                        </option>
+                        <option value="8">
+                            Connecticut
+                        </option>
+                        <option value="9">
+                            Delaware
+                        </option>
+                        <option value="10">
+                            Dist. of Columbia
+                        </option>
+                        <option value="11">
+                            Florida
+                        </option>
+                        <option value="12">
+                            Georgia
+                        </option>
+                        <option value="13">
+                            Guam
+                        </option>
+                        <option value="14">
+                            Hawaii
+                        </option>
+                        <option value="15">
+                            Idaho
+                        </option>
+                        <option value="16">
+                            Illinois
+                        </option>
+                        <option value="17">
+                            Indiana
+                        </option>
+                        <option value="18">
+                            Iowa
+                        </option>
+                        <option value="19">
+                            Kansas
+                        </option>
+                        <option value="20">
+                            Kentucky
+                        </option>
+                        <option value="21">
+                            Louisiana
+                        </option>
+                        <option value="22">
+                            Maine
+                        </option>
+                        <option value="24">
+                            Marshall Islands
+                        </option>
+                        <option value="23">
+                            Maryland
+                        </option>
+                        <option value="25">
+                            Massachusetts
+                        </option>
+                        <option value="26">
+                            Michigan
+                        </option>
+                        <option value="27">
+                            Micronesia
+                        </option>
+                        <option value="28">
+                            Minnesota
+                        </option>
+                        <option value="29">
+                            Mississippi
+                        </option>
+                        <option value="30">
+                            Missouri
+                        </option>
+                        <option value="31">
+                            Montana
+                        </option>
+                        <option value="32">
+                            Nebraska
+                        </option>
+                        <option value="33">
+                            Nevada
+                        </option>
+                        <option value="34">
+                            New Hampshire
+                        </option>
+                        <option value="35">
+                            New Jersey
+                        </option>
+                        <option value="36">
+                            New Mexico
+                        </option>
+                        <option value="37">
+                            New York
+                        </option>
+                        <option value="38">
+                            North Carolina
+                        </option>
+                        <option value="39">
+                            North Dakota
+                        </option>
+                        <option value="40">
+                            Northern Marianas
+                        </option>
+                        <option value="41">
+                            Ohio
+                        </option>
+                        <option value="42">
+                            Oklahoma
+                        </option>
+                        <option value="43">
+                            Oregon
+                        </option>
+                        <option value="44">
+                            Palau
+                        </option>
+                        <option value="45">
+                            Pennsylvania
+                        </option>
+                        <option value="46">
+                            Puerto Rico
+                        </option>
+                        <option value="47">
+                            Rhode Island
+                        </option>
+                        <option value="48">
+                            South Carolina
+                        </option>
+                        <option value="49">
+                            South Dakota
+                        </option>
+                        <option value="50">
+                            Tennessee
+                        </option>
+                        <option value="51">
+                            Texas
+                        </option>
+                        <option value="52">
+                            Utah
+                        </option>
+                        <option value="53">
+                            Vermont
+                        </option>
+                        <option value="55">
+                            Virgin Islands
+                        </option>
+                        <option value="54">
+                            Virginia
+                        </option>
+                        <option value="56">
+                            Washington
+                        </option>
+                        <option value="57">
+                            West Virginia
+                        </option>
+                        <option value="58">
+                            Wisconsin
+                        </option>
+                        <option value="59">
+                            Wyoming
+                        </option>
+
+                    </select>
+                    <span class="[ xsmall red ] error"></span>
+                </div>
+            </div>
+
+            <div class="[ mxn2 mb2 clearfix ] form-group">
+                <label for="shipping_country" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Country</label>
+                <div class="[ md-col md-col-6 px2 ]">
+                    <select class="fform-control field-light block full-width" id="shipping_country" name="shipping[shop_country_id]" data-state-selector="#shipping_state" data-current-state="1">
+                        <option value="3">Australia</option>
+                        <option value="11">Austria</option>
+                        <option value="12">Belgium</option>
+                        <option value="51">Brazil</option>
+                        <option value="2">Canada</option>
+                        <option value="63">Chile</option>
+                        <option value="14">Czech Republic</option>
+                        <option value="15">Denmark</option>
+                        <option value="13">Finland</option>
+                        <option value="4">France</option>
+                        <option value="5">Germany</option>
+                        <option value="98">Greece</option>
+                        <option value="112">Hong Kong</option>
+                        <option value="6">Iceland</option>
+                        <option value="118">Israel</option>
+                        <option value="8">Italy</option>
+                        <option value="120">Japan</option>
+                        <option value="138">Luxembourg</option>
+                        <option value="155">Monaco</option>
+                        <option value="22">Netherlands</option>
+                        <option value="19">New Zealand</option>
+                        <option value="16">Norway</option>
+                        <option value="183">Poland</option>
+                        <option value="21">Portugal</option>
+                        <option value="187">Romania</option>
+                        <option value="204">Singapore</option>
+                        <option value="209">South Africa</option>
+                        <option value="9">Spain</option>
+                        <option value="10">Sweden</option>
+                        <option value="18">Switzerland</option>
+                        <option value="232">Ukraine</option>
+                        <option value="17">United Kingdom</option>
+                        <option selected="" value="1">United States</option>
+                    </select>
+                    <span class="[ xsmall red ] error"></span>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="[ mxn2 mt3 clearfix ] form-group">
+            <div class="[ md-col md-col-9 md-col-offset-3 px2 ]">
+                <input class="button" type="submit" value="Update">
+                <input type="hidden" name="flash" value="Your profile has been successfully updated.">
+                <input type="hidden" name="redirect" value="/profile">
+            </div>
+        </div>
+
+    </form>
+</div>
+
+       <!--  <section class="col-sm-4" id="profile-changepassword">
+            <form  data-ajax-handler="shop:onChangePassword" class="form-horizontal custom" data-ajax-update="#profile-changepassword=shop-changepassword" data-validation-message="" method="post" action="/profile">
+
+
+
+    <div class="[ mxn2 mb2 clearfix ] form-group">
+        <label for="oldPassword" class="[ md-col md-col-6 md-right-align mt1 px2 ]">Old Password</label>
+        <div class="[ md-col md-col-6 px2 ]">
+            <input type="email" class="form-control field-light block full-width" id="oldPassword" name="oldPassword" />
+            <span class="[ xsmall red ] error"></span>
+        </div>
+    </div>
+
+    <div class="[ mxn2 mb2 clearfix ] form-group">
+        <label for="password" class="[ md-col md-col-6 md-right-align mt1 px2 ]">New Password</label>
+        <div class="[ md-col md-col-6 px2 ]">
+            <input type="email" class="form-control field-light block full-width" id="password" name="password" />
+            <span class="[ xsmall red ] error"></span>
+        </div>
+    </div>
+
+    <div class="[ mxn2 mb2 clearfix ] form-group">
+        <label for="passwordConfirm" class="[ md-col md-col-6 md-right-align mt1 px2 ]">Confirm Password</label>
+        <div class="[ md-col md-col-6 px2 ]">
+            <input type="email" class="form-control field-light block full-width" id="passwordConfirm" name="passwordConfirm" />
+            <span class="[ xsmall red ] error"></span>
+        </div>
+    </div>
+
+    <div class="[ mxn2 mb2 clearfix ] form-group">
+        <div class="md-col md-col-6 md-col-offset-6 px2">
+            <button type="submit" class="button">Update Password</button>
+        </div>
+    </div>
+
+    <input type="hidden" name="flash" value="Your password has been successfully changed."/>
+    <input type="hidden" name="redirect" value="/profile"/>
+
+</form>
+</section> -->
+
+</div>
+
+
+</div>
+<!-- Sitefooter -->
+<footer class="[ bg-brand-grey ] sitefooter">
+    <div class="container px2 py4 black">
+
+        <div class="clearfix mb4">
+
+            <div class="col col-6 sm-col-2">
+                <h5 class="uppercase">Shop</h5>
+                <ul class="list-reset">
+                    <li><a href="//monkeylatch.com/products">Products</a></li>
+                    <li><a href="//monkeylatch.com/orders">Order History</a></li>
+                    <li><a href="//monkeylatch.com/profile">Account</a></li>
+                </ul>
+            </div>
+            <div class="col col-6 sm-col-2">
+                <h5 class="uppercase">Support</h5>
+                <ul class="list-reset">
+                    <li><a href="//monkeylatch.com/returns">Returns</a></li>
+                    <li><a href="//monkeylatch.com/shipping">Shipping</a></li>
+                    <li><a href="//monkeylatch.com/about">Contact</a>
+                    </li></ul>
+                </div>
+                <div class="col col-6 sm-col-2">
+                    &nbsp;
+                <!-- <h5 class="uppercase">Company</h5>
+                <ul class="list-reset">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul> -->
+            </div>
+
+            <div class="col col-6 sm-right-align">
+                <a class="inline-block social-item bg-white brand-grey ml1 mr1" href="http://facebook.com/monkeylatch"><i class="icon ion-social-facebook"></i><span class="sr-only">Facebook</span></a>
+                <a class="inline-block social-item bg-white brand-grey ml1 mr1" href="http://twitter.com/monkeylatch"><i class="icon ion-social-twitter"></i><span class="sr-only">Twitter</span></a>
+                <a class="inline-block social-item bg-white brand-grey ml1 mr1" href="http://instagram.com/monkeylatch"><i class="icon ion-social-instagram"></i><span class="sr-only">Instagram</span></a>
+                <a class="inline-block social-item bg-white brand-grey ml1 mr1" href="http://pinterest.com/monkeylatch"><i class="icon ion-social-pinterest"></i><span class="sr-only">Pinterest</span></a>
+                <a class="inline-block social-item bg-white brand-grey ml1 mr1" href="http://youtube.com/monkeylatch"><i class="icon ion-social-youtube-outline"></i><span class="sr-only">YouTube</span></a>
+            </div>
+        </div>
+
+        <p class="center xsmall mb0 mt4">Copyright © 2015 Monkey Latch</p>
+
+    </div>
+</footer>
+<!--// Sitefooter -->
+
+<div id="modal-minicart" class="modal modal--right fade hide">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <a href="#" class="modal-title">
+                    <h5>Shopping Cart</h5>
+                    <p class="small">0 items</p>
+                </a>
+            </div>
+
+            <div class="modal-body">
+                <table class="table mini-cart-table">
+                    <tbody>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="modal-footer">
+                <p class="small"><strong>Sub-total</strong> $0.00</p>
+                <a href="//monkeylatch.com/cart" class="btn btn-sm btn-pop">Go to Cart</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+<!-- <script src="//d2qq4423n7kgsb.cloudfront.net/store-monkeylatch-54863e326a33c/themes/monkeylatch-default/resources/js/main.js?1436453821"></script> -->
+
+<script src="./js/main.js"></script
+
+</body></html>

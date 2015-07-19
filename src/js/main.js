@@ -2,11 +2,11 @@
 
 $(document).ready(function() {
 
-    $('.main-gallery').flickity({
-        // options
-        cellAlign: 'center',
-        contain: true
-    });
+    // $('.main-gallery').flickity({
+    //     // options
+    //     cellAlign: 'center',
+    //     contain: true
+    // });
 
     // Product sort
     $(document).on('change', 'select[data-sort-redirect]', function() {
@@ -52,57 +52,54 @@ $(document).ready(function() {
         var $win = $(window);
         var $doc = $(document);
 
-        var $source = $('#billing-info').find(':input:not([type=hidden])');
-        var $target = $('#shipping-info').find(':input:not([type=hidden])');
-        var $chk = $(document).find('.js-mirrordata');
+        var $source = $('#billing-info');
+        var $sourceEls = $source.find(':input:not([type=hidden])');
+        var $target = $('#shipping-info');
+        var $targetEls = $target.find(':input:not([type=hidden])');
+        var $chk = $doc.find('.js-mirrordata');
 
-        var _regex = /\[(.*?)\]/;
-        var _ev = 'keyup blur change';
+        var events = 'keyup blur change';
 
         // Update vars.
         $win.on('onAfterAjaxUpdate', function() {
-            $source = $('#billing-info').find(':input:not([type=hidden])');
-            $target = $('#shipping-info').find(':input:not([type=hidden])');
-            $target.prop('disabled', $chk.is(':checked'));
+            $source = $('#billing-info');
+            $sourceEls = $source.find(':input:not([type=hidden])');
+            $target = $('#shipping-info');
+            $targetEls.prop('disabled', $chk.is(':checked'));
+        });
+
+        $doc.on(events, '#billing-info [data-input]', function() {
+            if ($chk.is(':checked')) {
+                mirrorField($(this));
+            }
         });
 
         $doc.on('change', $chk, function() {
-
-            $target.prop('disabled', $chk.is(':checked'));
-
-            if($chk.is(':checked')) {
-                 $target.each(function() {
+            $targetEls.prop('disabled', $chk.is(':checked'));
+            if ($chk.is(':checked')) {
+                $sourceEls.each(function() {
                     mirrorField($(this));
                 });
                 return false;
             }
         });
 
-        $target.prop('disabled', $chk.is(':checked'));
+        $targetEls.prop('disabled', $chk.is(':checked'));
 
         function mirrorField($el) {
+            var input = $el.data('input');
+            var val, $targetEl;
 
-            if (!$el.attr('name')) {
+            if (!input) {
                 return;
             }
 
-            var mirrorVal = $el.val();
-            var nameMatch = $el.attr('name').match(_regex);
+            val = $el.val();
+            $targetEl = $('#shipping-info').find('[data-input="' + input + '"]');
 
-            if (!nameMatch) {
-                return;
-            }
+            $targetEl.val(val);
 
-            nameMatch = nameMatch[1];
-
-            var re = new RegExp(nameMatch, 'g');
-            var $targetEl = $target.filter(function() {
-                return this.name.match(re);
-            });
-
-            $targetEl.val(mirrorVal);
-
-            if ($el[0].id === 'billing_country') {
+            if (input === 'billing_country') {
                 $targetEl.trigger('change');
             }
         }
