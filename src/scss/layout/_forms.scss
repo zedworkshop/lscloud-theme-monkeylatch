@@ -13,9 +13,7 @@ textarea {
 }
 
 input.disabled,
-input.disabled:focus
-select.disabled,
-select.disabled:focus {
+select.disabled {
 	background: #e9e9e9;
 	color: #777;
 	pointer-events: none;
