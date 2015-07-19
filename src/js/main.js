@@ -2,11 +2,11 @@
 
 $(document).ready(function() {
 
-    // $('.main-gallery').flickity({
-    //     // options
-    //     cellAlign: 'center',
-    //     contain: true
-    // });
+    $('.main-gallery').flickity({
+        // options
+        cellAlign: 'center',
+        contain: true
+    });
 
     // Product sort
     $(document).on('change', 'select[data-sort-redirect]', function() {
