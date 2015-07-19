@@ -14,13 +14,13 @@
             <div class="clearfix mxn1">
                 <div class="col col-6 px1">
                     <label for="billing[first_name]" class="control-label sr-only">First Name</label>
-                    <input type="text" class="form-control field-light block full-width" id="billing[first_name]" name="billing[first_name]" value="{{ billing.first_name }}" size="20" placeholder="First Name" />
+                    <input type="text" class="form-control field-light block full-width" id="billing[first_name]" name="billing[first_name]" value="{{ billing.first_name }}" size="20" placeholder="First Name" data-mirror />
                     <span class="[ xsmall red ] error"></span>
                 </div>
 
                 <div class="col col-6 px1">
                     <label for="billing[last_name]" class="control-label sr-only">Last Name</label>
-                    <input type="text" class="form-control field-light block full-width" id="billing[last_name]" name="billing[last_name]" value="{{ billing.last_name }}" size="20" placeholder="Last Name" />
+                    <input type="text" class="form-control field-light block full-width" id="billing[last_name]" name="billing[last_name]" value="{{ billing.last_name }}" size="20" placeholder="Last Name" data-mirror />
                     <span class="[ xsmall red ] error"></span>
                 </div>
             </div>
@@ -38,7 +38,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="billing[phone]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Phone</label>
         <div class="[ md-col md-col-9 px2 ]">
-            <input type="tel" class="form-control field-light block full-width" id="billing[phone]" name="billing[phone]" value="{{ billing.phone }}" size="16" />
+            <input type="tel" class="form-control field-light block full-width" id="billing[phone]" name="billing[phone]" value="{{ billing.phone }}" size="16" data-mirror />
             <span class="[ xsmall red ] error"></span>
         </div>
     </div>
@@ -46,7 +46,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="billing[street_address]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Address</label>
         <div class="[ md-col md-col-9 px2 ]">
-            <input type="text" class="form-control field-light block full-width" id="billing[street_address]" name="billing[street_address]" value="{{ billing.street_address }}" size="40" placeholder="Street" />
+            <input type="text" class="form-control field-light block full-width" id="billing[street_address]" name="billing[street_address]" value="{{ billing.street_address }}" size="40" placeholder="Street" data-mirror />
             <span class="[ xsmall red ] error"></span>
         </div>
     </div>
@@ -57,13 +57,13 @@
             <div class="clearfix mxn1">
                 <div class="col col-6 px1">
                     <label for="billing[city]" class="control-label sr-only">City</label>
-                    <input type="text" class="form-control field-light block full-width" id="billing[city]" name="billing[city]" value="{{ billing.city }}" size="20" placeholder="City" />
+                    <input type="text" class="form-control field-light block full-width" id="billing[city]" name="billing[city]" value="{{ billing.city }}" size="20" placeholder="City" data-mirror />
                     <span class="[ xsmall red ] error"></span>
                 </div>
 
                 <div class="col col-6 px1">
                     <label for="billing[postal_code]" class="control-label sr-only">Zip</label>
-                    <input type="text" class="form-control field-light block full-width" id="billing[postal_code]" name="billing[postal_code]" value="{{ billing.postal_code }}" size="6" placeholder="Zip" />
+                    <input type="text" class="form-control field-light block full-width" id="billing[postal_code]" name="billing[postal_code]" value="{{ billing.postal_code }}" size="6" placeholder="Zip" data-mirror />
                     <span class="[ xsmall red ] error"></span>
                 </div>
             </div>
@@ -73,7 +73,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="billing_state" class="[ md-col md-col-3 md-right-align mt1 px2 ]">State</label>
         <div class="[ md-col md-col-6 px2 ]">
-            <select class="form-control field-light block full-width" id="billing_state" name="billing[shop_state_id]" data-ajax-refresh>
+            <select class="form-control field-light block full-width" id="billing_state" name="billing[shop_state_id]" data-ajax-refresh data-mirror>
                 {{ partial('shop-stateoptions', {'states': billingStates, 'selected': billing.state.id}) }}
             </select>
             <span class="[ xsmall red ] error"></span>
@@ -83,7 +83,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="billing_country" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Country</label>
         <div class="[ md-col md-col-6 px2 ]">
-            <select class="fform-control field-light block full-width" id="billing_country" name="billing[shop_country_id]" data-state-selector="#billing_state" data-current-state="{{ billing.country.id }}">
+            <select class="fform-control field-light block full-width" id="billing_country" name="billing[shop_country_id]" data-state-selector="#billing_state" data-current-state="{{ billing.country.id }}" data-mirror>
                 {% for country in countries %}
                 <option {{ option_state(billing.country.id, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
                 {% endfor %}
@@ -112,13 +112,13 @@
             <div class="clearfix mxn1">
                 <div class="col col-6 px1">
                     <label for="shipping[first_name]" class="control-label sr-only">First Name</label>
-                    <input type="text" class="form-control field-light block full-width" id="shipping[first_name]" name="shipping[first_name]" value="{{ shipping.first_name }}" size="20" placeholder="First Name" />
+                    <input type="text" class="form-control field-light block full-width" id="shipping[first_name]" name="shipping[first_name]" value="{{ shipping.first_name }}" size="20" placeholder="First Name" data-mirror />
                     <span class="[ xsmall red ] error"></span>
                 </div>
 
                 <div class="col col-6 px1">
                     <label for="shipping[last_name]" class="control-label sr-only">Last Name</label>
-                    <input type="text" class="form-control field-light block full-width" id="shipping[last_name]" name="shipping[last_name]" value="{{ shipping.last_name }}" size="20" placeholder="Last Name" />
+                    <input type="text" class="form-control field-light block full-width" id="shipping[last_name]" name="shipping[last_name]" value="{{ shipping.last_name }}" size="20" placeholder="Last Name" data-mirror />
                     <span class="[ xsmall red ] error"></span>
                 </div>
             </div>
@@ -128,7 +128,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="shipping[phone]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Phone</label>
         <div class="[ md-col md-col-9 px2 ]">
-            <input type="tel" class="form-control field-light block full-width" id="shipping[phone]" name="shipping[phone]" value="{{ shipping.phone }}" size="16" />
+            <input type="tel" class="form-control field-light block full-width" id="shipping[phone]" name="shipping[phone]" value="{{ shipping.phone }}" size="16" data-mirror />
             <span class="[ xsmall red ] error"></span>
         </div>
     </div>
@@ -136,7 +136,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="shipping[street_address]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Address</label>
         <div class="[ md-col md-col-9 px2 ]">
-            <input type="text" class="form-control field-light block full-width" id="shipping[street_address]" name="shipping[street_address]" value="{{ shipping.street_address }}" size="40" placeholder="Street" />
+            <input type="text" class="form-control field-light block full-width" id="shipping[street_address]" name="shipping[street_address]" value="{{ shipping.street_address }}" size="40" placeholder="Street" data-mirror />
             <span class="[ xsmall red ] error"></span>
         </div>
     </div>
@@ -147,13 +147,13 @@
             <div class="clearfix mxn1">
                 <div class="col col-6 px1">
                     <label for="shipping[city]" class="control-label sr-only">City</label>
-                    <input type="text" class="form-control field-light block full-width" id="shipping[city]" name="shipping[city]" value="{{ shipping.city }}" size="20" placeholder="City" />
+                    <input type="text" class="form-control field-light block full-width" id="shipping[city]" name="shipping[city]" value="{{ shipping.city }}" size="20" placeholder="City" data-mirror />
                     <span class="[ xsmall red ] error"></span>
                 </div>
 
                 <div class="col col-6 px1">
                     <label for="shipping[postal_code]" class="control-label sr-only">Zip</label>
-                    <input type="text" class="form-control field-light block full-width" id="shipping[postal_code]" name="shipping[postal_code]" value="{{ shipping.postal_code }}" size="6" placeholder="Zip" />
+                    <input type="text" class="form-control field-light block full-width" id="shipping[postal_code]" name="shipping[postal_code]" value="{{ shipping.postal_code }}" size="6" placeholder="Zip" data-mirror />
                     <span class="[ xsmall red ] error"></span>
                 </div>
             </div>
@@ -163,7 +163,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="shipping_state" class="[ md-col md-col-3 md-right-align mt1 px2 ]">State</label>
         <div class="[ md-col md-col-6 px2 ]">
-            <select class="form-control field-light block full-width" id="shipping_state" name="shipping[shop_state_id]" data-ajax-refresh>
+            <select class="form-control field-light block full-width" id="shipping_state" name="shipping[shop_state_id]" data-ajax-refresh data-mirror>
                 {{ partial('shop-stateoptions', {'states': shippingStates, 'selected': shipping.stateId}) }}
             </select>
             <span class="[ xsmall red ] error"></span>
@@ -173,7 +173,7 @@
     <div class="[ mxn2 mb2 clearfix ] form-group">
         <label for="shipping_country" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Country</label>
         <div class="[ md-col md-col-6 px2 ]">
-            <select class="fform-control field-light block full-width" id="shipping_country" name="shipping[shop_country_id]" data-state-selector="#shipping_state" data-current-state="{{ shipping.country.id }}">
+            <select class="fform-control field-light block full-width" id="shipping_country" name="shipping[shop_country_id]" data-state-selector="#shipping_state" data-current-state="{{ shipping.country.id }}" data-mirror>
                 {% for country in countries %}
                 <option {{ option_state(shipping.country.id, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
                 {% endfor %}

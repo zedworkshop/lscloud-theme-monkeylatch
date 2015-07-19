@@ -875,7 +875,7 @@ hr {
   background-color: rgba(0, 0, 0, 0.125);
   opacity: .5; }
 
-.field-light:read-only:not(select) {
+.field-light[readonly] {
   background-color: rgba(0, 0, 0, 0.125); }
 
 .field-light:invalid {

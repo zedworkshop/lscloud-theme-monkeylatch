@@ -2,11 +2,15 @@
 
 $(document).ready(function() {
 
-    $('.main-gallery').flickity({
-        // options
-        cellAlign: 'center',
-        contain: true
-    });
+    if ($('.main-gallery').length) {
+
+        $('.main-gallery').flickity({
+            // options
+            cellAlign: 'center',
+            contain: true
+        });
+
+    }
 
     // Product sort
     $(document).on('change', 'select[data-sort-redirect]', function() {
@@ -49,60 +53,93 @@ $(document).ready(function() {
 
     (function($, window, document, undefined) {
 
-        var $win = $(window);
         var $doc = $(document);
-
-        var $source = $('#billing-info');
-        var $sourceEls = $source.find(':input:not([type=hidden])');
-        var $target = $('#shipping-info');
-        var $targetEls = $target.find(':input:not([type=hidden])');
         var $chk = $doc.find('.js-mirrordata');
 
-        var events = 'keyup blur change';
+        $(document).on('click', $chk, function() {
+            if ($(this).is(':checked')) {
+                $(this).data('toggle-mirror', 'off').find('.fa-check').css('visibility', 'hidden');
+                sessionStorage.toggleMirror = 'off';
 
-        // Update vars.
-        $win.on('onAfterAjaxUpdate', function() {
-            $source = $('#billing-info');
-            $sourceEls = $source.find(':input:not([type=hidden])');
-            $target = $('#shipping-info');
-            $targetEls.prop('disabled', $chk.is(':checked'));
-        });
-
-        $doc.on(events, '#billing-info [data-input]', function() {
-            if ($chk.is(':checked')) {
-                mirrorField($(this));
-            }
-        });
-
-        $doc.on('change', $chk, function() {
-            $targetEls.prop('disabled', $chk.is(':checked'));
-            if ($chk.is(':checked')) {
-                $sourceEls.each(function() {
-                    mirrorField($(this));
+                $('#shipping-info').each(function(i, div) {
+                    $(div).find('input, select').each(function(j, element) {
+                        $(element).prop('readonly', false);
+                    });
                 });
-                return false;
+
+            } else {
+                $(this).data('toggle-mirror', 'on').find('.fa').css('visibility', 'visible');
+                sessionStorage.toggleMirror = 'on';
+                mirrorAll();
+
+                $('#shipping-info').each(function(i, div) {
+                    $(div).find('input, select').each(function(j, element) {
+                        $(element).prop('readonly', true);
+                    });
+                });
             }
         });
 
-        $targetEls.prop('disabled', $chk.is(':checked'));
-
-        function mirrorField($el) {
-            var input = $el.data('input');
-            var val, $targetEl;
-
-            if (!input) {
-                return;
+        // mirror toggle button
+        $(window).on('onAjaxAfterUpdate', function() {
+            if ($chk.length && sessionStorage.toggleMirror == 'off') {
+                $chk.data('toggle-mirror', 'off').find('.fa').css('visibility', 'hidden');
+                $('#shipping-info').addClass('in');
             }
+        });
 
-            val = $el.val();
-            $targetEl = $('#shipping-info').find('[data-input="' + input + '"]');
-
-            $targetEl.val(val);
-
-            if (input === 'billing_country') {
-                $targetEl.trigger('change');
-            }
+        //mirror source and destination fields
+        function mirrorFields($mirrorSource, $mirrorTarget, event) {
+            $($mirrorSource).each(function(idx) {
+                $(this).on(event, function() {
+                    var mirrorVal = $(this).val();
+                    if ($chk.is(':checked')) {
+                        $($mirrorTarget + ':eq(' + idx + ')').val(mirrorVal);
+                    }
+                });
+            });
         }
+
+        mirrorFields('#billing-info [data-mirror]', '#shipping-info [data-mirror]', 'keyup keypress blur change');
+        //mirrorFields('#billing-info select[data-mirror]', '#shipping-info select[data-mirror]', 'change');
+
+        //mirror all fields
+        function mirrorAll() {
+            $('#billing-info [data-mirror]').each(function(idx) {
+                var mirrorVal = $(this).val();
+                $('#shipping-info [data-mirror]:eq(' + idx + ')').val(mirrorVal);
+            });
+            //trigger change to update the state list
+            $('#shipping_country[data-mirror]').trigger('change');
+        }
+
+        $(window).load(function() {
+            if ($chk.is(':checked')) {
+                mirrorAll();
+            }
+        });
+
+        //country select
+        var tracker = false;
+
+        $('#billing_country[data-mirror]').on('change', function() {
+            if ($chk.is(':checked')) {
+                tracker = true;
+            }
+        });
+
+        //update shipping only once
+        $(window).on('onAfterAjaxUpdate', function() {
+            if (tracker == true) {
+                $('#shipping_country[data-mirror]').change();
+                tracker = false;
+            }
+
+            //force the shiping state to update if it's value is different ie. after a page refresh
+            if ($('#shipping_state[data-mirror]').val() != $('#billing_state[data-mirror]').val()) {
+                $('#shipping_state[data-mirror]').val($('#billing_state[data-mirror]').val());
+            }
+        });
 
     })(jQuery, window, document);
 
