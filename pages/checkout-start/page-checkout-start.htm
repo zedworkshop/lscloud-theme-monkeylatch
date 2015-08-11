@@ -10,6 +10,10 @@ url: /checkout-start
 
 <div class="container px2 cushion-bottom cushion-top-sm">
 
+    <header class="mb2 border-bottom">
+        <h3>Ready to checkout?</h3>
+    </header>
+
     {% if customer %}
     <div class="row">
         <div class="col-sm-6">
@@ -26,10 +30,11 @@ url: /checkout-start
 
     {% else %}
 
-    <div class="clearfix mxn4">
-        <div class="md-col md-col-6 px4 mb4">
+    <div class="clearfix mxn3">
+        <div class="md-col md-col-6 xl-col-4 px3 mb4">
 
-            <h4 class="mb2">Returning Customers</h4>
+            <h4 class="mb1">Returning Customers</h4>
+            <p class="mb3">Login to your account to check out even faster.</p>
 
             {{ open_form({'data-ajax-handler': 'shop:onLogin', 'class' : 'form-horizontal'}) }}
 
@@ -61,10 +66,18 @@ url: /checkout-start
             {{ close_form() }}
         </div>
 
-        <div class="md-col md-col-6 px4 mb4">
-            <h4 class="breaker">Continue checkout as guest</h4>
-            <p>Continue checkout as guest. No sign up required.</p>
-            <a class="button bg-red" href="{{ site_url('checkout') }}">Continue as guest</a>
+        <div class="md-col md-col-6 xl-col-4 px3 mb4">
+
+            {{ partial('shop-signup-form') }}
+
+        </div>
+
+        <div class="md-col md-col-6 xl-col-4 px3 mb4">
+
+            <h4 class="mb1">Guest Checkout</h4>
+            <p>Don't want to create an account? Check out as a guest.</p>
+            <a class="button bg-blue" href="{{ site_url('checkout') }}">Continue as guest</a>
+
         </div>
     </div>
 

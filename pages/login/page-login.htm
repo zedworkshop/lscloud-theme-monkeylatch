@@ -13,7 +13,7 @@ url: /login
     <div class="clearfix mxn4">
         <div class="md-col md-col-6 px4 mb4">
 
-            <h4 class="mb2">Returning Customers</h4>
+            <h4 class="mb3">Returning Customers</h4>
 
             {{ open_form({'data-ajax-handler': 'shop:onLogin', 'data-validation-message' : '', 'class' : 'form-horizontal' }) }}
 
@@ -47,66 +47,7 @@ url: /login
 
         <div class="md-col md-col-6 px4">
 
-            <h4 class="mb2">New Customers</h4>
-
-            {{ open_form({'data-ajax-handler': 'shop:onSignup', 'data-validation-message' : '', 'class' : 'form-horizontal' }) }}
-
-                <div class="[ mxn2 mb2 clearfix ] form-group">
-                    <label class="[ md-col md-col-3 md-right-align mt1 px2 ]">Your Name</label>
-
-                    <div class="[ md-col md-col-9 px2 ]">
-
-                        <div class="clearfix mxn1">
-                            <div class="col col-6 px1">
-                                <label for="signup[first_name]" class="control-label sr-only">First Name</label>
-                                <input type="text" class="form-control field-light block full-width" id="signup[first_name]" name="signup[first_name]" value="{{ post('signup[first_name]') }}" placeholder="First Name" />
-                                <span class="xsmall red error"></span>
-                            </div>
-
-                            <div class="col col-6 px1">
-                                <label for="signup[last_name]" class="control-label sr-only">Last Name</label>
-                                <input type="text" class="form-control field-light block full-width" id="signup[last_name]" name="signup[last_name]" value="{{ post('signup[last_name]') }}" size="20" placeholder="Last Name" />
-                                <span class="xsmall red error"></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="[ mxn2 mb2 clearfix ] form-group">
-                    <label for="signup[email]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Email</label>
-                    <div class="[ md-col md-col-9 px2 ]">
-                        <input type="email" class="form-control field-light block full-width" id="signup[email]" name="signup[email]" value="{{ post('signup[email]') }}" size="40" />
-                        <span class="xsmall red error"></span>
-                    </div>
-                </div>
-
-                <div class="[ mxn2 mb2 clearfix ] form-group">
-                    <label for="signup[password]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Password</label>
-                    <div class="[ md-col md-col-9 px2 ]">
-                        <input type="password" class="form-control field-light block full-width" id="signup[password]" name="signup[password]" value="" size="16" />
-                        <span class="xsmall red error"></span>
-                    </div>
-                </div>
-
-                <div class="[ mxn2 mb2 clearfix ] form-group">
-                    <label for="signup[password_confirmation]" class="[ md-col md-col-3 md-right-align mt1 px2 ]">Confirm</label>
-                    <div class="[ md-col md-col-9 px2 ]">
-                        <input type="password" class="form-control field-light block full-width" id="signup[password_confirmation]" name="signup[password_confirmation]" value="" size="16" />
-                        <span class="xsmall red error"></span>
-                    </div>
-                </div>
-
-                <div class="[ mxn2 mb2 clearfix ] form-group">
-                    <div class="[ md-col md-col-9 md-col-offset-3 px2 ]">
-                        <button type="submit" class="button bg-black">Submit</button>
-                    </div>
-                </div>
-
-                <input type="hidden" name="autologin" value="1" />
-                <input type="hidden" name="redirect" value="{{ site_url('registered') }}"/>
-
-            {{ close_form() }}
+            {{ partial('shop-signup-form') }}
 
         </div>
     </div>

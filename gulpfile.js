@@ -34,6 +34,7 @@ gulp.task('styles', function() {
         .pipe($.autoprefixer(['last 5 versions', '> 1%', 'ie 8', 'ie 7'], {
             cascade: true
         }))
+        .pipe($.pixrem())
         .pipe(gulp.dest(paths.dev + '/css'))
         .pipe($.size({
             showFiles: true

@@ -1,0 +1,56 @@
+<h4 class="mb1">New Customers</h4>
+<p class="mb3">Create an account to make your checkouts easier.</p>
+
+{{ open_form({'data-ajax-handler': 'shop:onSignup', 'data-validation-message' : '', 'class' : 'form-horizontal' }) }}
+
+   <div class="[ mxn2 mb2 clearfix ] form-group">
+        <label for="signup[first_name]" class="[ md-col md-col-4 md-right-align mt1 px2 ]">First Name</label>
+        <div class="[ md-col md-col-8 px2 ]">
+            <input type="text" class="form-control field-light block full-width" id="signup[first_name]" name="signup[first_name]" value="{{ post('signup[first_name]') }}" placeholder="First Name" />
+            <span class="xsmall red error"></span>
+        </div>
+    </div>
+
+    <div class="[ mxn2 mb2 clearfix ] form-group">
+        <label for="signup[last_name]" class="[ md-col md-col-4 md-right-align mt1 px2 ]">Last Name</label>
+        <div class="[ md-col md-col-8 px2 ]">
+            <input type="text" class="form-control field-light block full-width" id="signup[last_name]" name="signup[last_name]" value="{{ post('signup[last_name]') }}" size="20" placeholder="Last Name" />
+            <span class="xsmall red error"></span>
+        </div>
+    </div>
+
+    <div class="[ mxn2 mb2 clearfix ] form-group">
+        <label for="signup[email]" class="[ md-col md-col-4 md-right-align mt1 px2 ]">Email</label>
+        <div class="[ md-col md-col-8 px2 ]">
+            <input type="email" class="form-control field-light block full-width" id="signup[email]" name="signup[email]" value="{{ post('signup[email]') }}" size="40" placeholder="Email Address" />
+            <span class="xsmall red error"></span>
+        </div>
+    </div>
+
+    <div class="[ mxn2 mb2 clearfix ] form-group">
+        <label for="signup[password]" class="[ md-col md-col-4 md-right-align mt1 px2 ]">Password</label>
+        <div class="[ md-col md-col-8 px2 ]">
+            <input type="password" class="form-control field-light block full-width" id="signup[password]" name="signup[password]" value="" size="16" />
+            <span class="xsmall red error"></span>
+        </div>
+    </div>
+
+    <div class="[ mxn2 mb2 clearfix ] form-group">
+        <label for="signup[password_confirmation]" class="[ md-col md-col-4 md-right-align mt1 px2 ]">Confirm</label>
+        <div class="[ md-col md-col-8 px2 ]">
+            <input type="password" class="form-control field-light block full-width" id="signup[password_confirmation]" name="signup[password_confirmation]" value="" size="16" />
+            <span class="xsmall red error"></span>
+        </div>
+    </div>
+
+    <div class="[ mxn2 mb2 clearfix mt2 ] form-group">
+        <div class="[ md-col md-col-4 ]">&nbsp;</div>
+        <div class="[ md-col md-col-8 px2 ]">
+            <button type="submit" class="button bg-black">Submit</button>
+        </div>
+    </div>
+
+    <input type="hidden" name="autologin" value="1" />
+    <input type="hidden" name="redirect" value="{{ site_url('registered') }}"/>
+
+{{ close_form() }}
