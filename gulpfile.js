@@ -34,7 +34,9 @@ gulp.task('styles', function() {
         .pipe($.autoprefixer(['last 5 versions', '> 1%', 'ie 8', 'ie 7'], {
             cascade: true
         }))
-        .pipe($.pixrem())
+        .pipe($.pixrem(undefined, {
+            atrules: true
+        }))
         .pipe(gulp.dest(paths.dev + '/css'))
         .pipe($.size({
             showFiles: true
@@ -68,7 +70,7 @@ gulp.task('html', ['styles'], function() {
         }))
         .pipe(jsFilter.restore())
         .pipe(cssFilter)
-        .pipe($.csso())
+        .pipe($.cssmin())
         .pipe(cssFilter.restore())
         .pipe(assets.restore())
         .pipe($.useref())
@@ -146,7 +148,7 @@ gulp.task('bump', function() {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('email', function () {
+gulp.task('email', function() {
     gulp.src(paths.dev + '/email/*.html')
         .pipe($.premailer())
         .pipe(gulp.dest(paths.build + '/email/'));

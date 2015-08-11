@@ -12,6 +12,10 @@ textarea {
 	padding: $form-field-padding-y*0.8 $form-field-padding-x*0.8;
 }
 
+select:not([multiple]) {
+	line-height: 2.5rem;
+}
+
 input.disabled,
 select.disabled {
 	background: #e9e9e9;
