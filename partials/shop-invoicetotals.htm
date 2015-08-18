@@ -4,7 +4,7 @@
 
     <p class="clearfix mb1 small">
         <strong class="col col-6">Subtotal</strong>
-        <span class="col col-6 right-align">{{ invoice.subtotal_invoiced|currency }}</span>
+        <span class="col col-6 right-align">{{ invoice.subtotal|currency }}</span>
     </p>
 
     {% if invoice.total_discount > 0 %}
@@ -14,10 +14,19 @@
     </p>
     {% endif %}
 
+    {% if invoice.total_sales_tax > 0 %}
     <p class="clearfix mb1 small">
         <strong class="col col-6">Sales Tax</strong>
         <span class="col col-6 right-align">{{ invoice.total_sales_tax|currency }}</span>
     </p>
+    {% endif %}
+
+    {% for tax in invoice.taxes %}
+        <p class="clearfix mb1 small">
+            <strong class="col col-6">{{ tax.tax_name }}</strong>
+            <span class="col col-6 right-align">({{ tax.tax_rate }}) {{ tax.tax_amount|currency }}</span>
+        </p>
+    {% endfor %}
 
     <p class="clearfix mb1 small">
         <strong class="col col-6">Shipping</strong>

@@ -2806,6 +2806,19 @@ Padding
   line-height: 36px;
   padding: 0; }
 
+.thumb {
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto; }
+
+.thumb-xs {
+  height: 40px; }
+  .thumb-xs img {
+    max-height: 100%; }
+
+.thumb-sm {
+  max-width: 80px; }
+
 .modal {
   position: fixed;
   top: 10px;
@@ -2823,6 +2836,11 @@ Padding
       right: 2rem;
       top: 32px;
       top: 2rem; } }
+
+@media (min-width: 52em) {
+  .collapse {
+    width: 1%;
+    white-space: nowrap; } }
 
 /**
  *  Home Page
@@ -2890,13 +2908,3 @@ Padding
     font-size: 14px;
     font-size: 0.9rem;
     line-height: 1.5; } }
-
-.thumb {
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto; }
-
-.thumb-xs {
-  height: 40px; }
-  .thumb-xs img {
-    max-height: 100%; }

@@ -1,0 +1,17 @@
+.thumb {
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.thumb-xs {
+	height: 40px;
+
+	img {
+		max-height: 100%;
+	}
+}
+
+.thumb-sm {
+	max-width: 80px;
+}
