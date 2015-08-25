@@ -59,7 +59,6 @@ $(document).ready(function() {
         $chk.on('click', function() {
 
             if (!$(this).is(':checked')) {
-                console.log('yes');
                 $(this).data('toggle-mirror', 'off').find('.fa-check').css('visibility', 'hidden');
                 sessionStorage.toggleMirror = 'off';
 
@@ -68,8 +67,6 @@ $(document).ready(function() {
                 });
 
             } else {
-                console.log('no');
-
                 $(this).data('toggle-mirror', 'on').find('.fa').css('visibility', 'visible');
                 sessionStorage.toggleMirror = 'on';
                 mirrorAll();

@@ -24,7 +24,7 @@
                     {% for relatedProduct in item.product.related %}
                     {% if relatedProduct.sku != 'allen-key' %}
                     <div class="inline-block">
-                        <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(80,80)|default('http://placehold.it/80x80') }}"/>
+                        <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(80,80)|default('https://placehold.it/80x80') }}"/>
                     </div>
                     {% endif %}
                     {% endfor %}

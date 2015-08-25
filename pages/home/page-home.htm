@@ -100,7 +100,7 @@ url: /
             {% for product in baseProducts.products %}
                 {% if product.sku == "monkey-latch-base-plate" %}
                     <figure>
-                        <img alt="{{ product.name }} thumbnail" src="{{ product.images.first.thumbnail(500, 280)|default('http://placehold.it/500x280') }}">
+                        <img alt="{{ product.name }} thumbnail" src="{{ product.images.first.thumbnail(500, 280)|default('https://placehold.it/500x280') }}">
                     </figure>
                     <div class="right left-align mr4">
                         <h5 class="xsmall uppercase heading">{{ product.name }}</h5>
@@ -116,9 +116,9 @@ url: /
                 <div class="clearfix mb1">
                     <figure class="col col-5 right-align">
                         {% if product.sku == "monkey-latch-backpack-mount" %}
-                        <img alt="{{ product.name }} thumbnail" src="{{ product.images.first.thumbnail(280, 150)|default('http://placehold.it/280x150') }}">
+                        <img alt="{{ product.name }} thumbnail" src="{{ product.images.first.thumbnail(280, 150)|default('https://placehold.it/280x150') }}">
                         {% else %}
-                        <img alt="{{ product.name }} thumbnail" src="{{ product.images.first.thumbnail(180, 120)|default('http://placehold.it/180x120') }}">
+                        <img alt="{{ product.name }} thumbnail" src="{{ product.images.first.thumbnail(180, 120)|default('https://placehold.it/180x120') }}">
                         {% endif %}
                     </figure>
                     <div class="col col-7 px2">
@@ -159,7 +159,7 @@ url: /
                 {% if relatedProduct.sku != 'allen-key' %}
                 {% for relatedImage in relatedProduct.images %}
                 <figure class="sm-col sm-col-4">
-                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedImage.thumbnail(320, 240)|default('http://placehold.it/320x240') }}"/>
+                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedImage.thumbnail(320, 240)|default('https://placehold.it/320x240') }}"/>
                 </figure>
                 {% endfor %}
                 {% endif %}
@@ -190,9 +190,9 @@ url: /
                 {% if relatedProduct.sku != 'allen-key' %}
                 <figure>
                 {% if (product.sku == 'backpack-mount') %}
-                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(480, 320)|default('http://placehold.it/480x320') }}"/>
+                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(480, 320)|default('https://placehold.it/480x320') }}"/>
                     {% else %}
-                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(320, 240)|default('http://placehold.it/320x240') }}"/>
+                    <img alt="{{ relatedProduct.name }} image" src="{{ relatedProduct.images.first.thumbnail(320, 240)|default('https://placehold.it/320x240') }}"/>
                     {% endif %}
                 </figure>
                 {% endif %}
