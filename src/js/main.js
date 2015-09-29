@@ -2,6 +2,19 @@
 
 $(document).ready(function() {
 
+// Nav toggle
+$('.js-toggle-nav').on('touchstart click', function(e) {
+    e.preventDefault();
+
+    var $sitenav = $('.sitenav');
+
+    if($sitenav.hasClass('active')) {
+        $sitenav.removeClass('active');
+    } else {
+        $sitenav.addClass('active');
+    }
+});
+
     if ($('.main-gallery').length) {
 
         $('.main-gallery').flickity({

@@ -23,6 +23,7 @@
 		position: absolute;
 		top: 100%;
 		left: 0;
+		z-index: 1000;
 
 		max-height: 0;
 		opacity: 0;
@@ -44,6 +45,12 @@
 
 		.cartinfo {
 			float: right;
+		}
+
+		&.active {
+			max-height: 300px;
+			opacity: 1;
+			visibility: visible;
 		}
 	}
 

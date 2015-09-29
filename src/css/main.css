@@ -2602,6 +2602,7 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
+    z-index: 1000;
     max-height: 0;
     opacity: 0;
     visibility: hidden;
@@ -2615,7 +2616,11 @@ body {
     .sitenav .minicart {
       width: 100%; }
     .sitenav .cartinfo {
-      float: right; } }
+      float: right; }
+    .sitenav.active {
+      max-height: 300px;
+      opacity: 1;
+      visibility: visible; } }
 @media (min-width: 40em) {
   .sitenav .button {
     font-size: 14px;
