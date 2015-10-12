@@ -2635,14 +2635,20 @@ body {
       background: none;
       box-shadow: none;
       border: 0 transparent;
-      border-bottom: 3px solid #ff4136; } }
+      border-bottom: 3px solid #ff4136; }
+  .sitenav .minicart {
+    display: block;
+    font-size: 14px;
+    text-align: right; }
+    .sitenav .minicart .button {
+      float: right;
+      font-size: inherit; } }
 @media (min-width: 52em) {
   .sitenav .button {
     font-size: 19px;
     font-size: 1.2rem; }
     .sitenav .button-small {
-      font-size: 12px;
-      font-size: 0.8rem; } }
+      font-size: 12px; } }
 
 .site-footer {
   border-top: 1px solid #ddd; }
